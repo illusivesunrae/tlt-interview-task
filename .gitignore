@@ -28,3 +28,6 @@ Homestead.json
 .env.production
 .phpactor.json
 auth.json
+/web-client/.env
+/web-client/node_modules/
+.DS_Store
