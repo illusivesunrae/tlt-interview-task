@@ -16,7 +16,7 @@
 
 <script setup>
 import { onMounted, watch } from 'vue';
-import { useQuizStore } from '../modules/quiz/store/quizStore';
+import { useQuizStore } from '../../modules/quiz/store/quizStore';
 
 import BaseCard from '../components/BaseCard.vue';
 

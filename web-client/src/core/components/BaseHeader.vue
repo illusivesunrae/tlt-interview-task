@@ -116,7 +116,7 @@
 </template>
 
 <script setup>
-import { useFirebaseStore } from '../modules/firebase/store/firebaseStore';
+import { useFirebaseStore } from '../../modules/firebase/store/firebaseStore';
 import { ref } from 'vue';
 
 const store = useFirebaseStore();

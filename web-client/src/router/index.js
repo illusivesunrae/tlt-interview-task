@@ -1,11 +1,11 @@
-import { useFirebaseStore } from '../core/modules/firebase/store/firebaseStore'
+import { useFirebaseStore } from '../modules/firebase/store/firebaseStore'
 import { createRouter, createWebHistory } from 'vue-router'
 
 import TheDashboard from '@/core/views/TheDashboard.vue'
-import AuthPage from '@/core/modules/auth/views/AuthPage.vue'
+import AuthPage from '@/modules/auth/views/AuthPage.vue'
 import { onAuthStateChanged, getAuth } from 'firebase/auth'
-import QuizPage from '@/core/modules/quiz/views/QuizPage.vue'
-import QuizResultsPage from '@/core/modules/quiz/views/QuizResultsPage.vue'
+import QuizPage from '@/modules/quiz/views/QuizPage.vue'
+import QuizResultsPage from '@/modules/quiz/views/QuizResultsPage.vue'
 
 const router = createRouter({
   history: createWebHistory(),

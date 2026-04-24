@@ -1,8 +1,8 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue';
 import { RouterLink, RouterView, useRoute } from 'vue-router'
-import AuthFooter from '@/core/modules/auth/components/AuthFooter.vue';
-import AuthHeader from '@/core/modules/auth/components/AuthHeader.vue';
+import AuthFooter from '@/modules/auth/components/AuthFooter.vue';
+import AuthHeader from '@/modules/auth/components/AuthHeader.vue';
 import BaseFooter from '@/core/components/BaseFooter.vue';
 import BaseHeader from '@/core/components/BaseHeader.vue';
 

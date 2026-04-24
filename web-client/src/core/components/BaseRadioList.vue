@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import { useQuizStore } from '../modules/quiz/store/quizStore';
+import { useQuizStore } from '../../modules/quiz/store/quizStore';
 import { ref, toRef, watch } from 'vue';
 import BaseRadioItem from './BaseRadioItem.vue';
 
