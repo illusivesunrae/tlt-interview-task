@@ -1,4 +1,4 @@
-import { useFirebaseStore } from '../modules/firebase/store/firebaseStore'
+import { useFirebaseStore } from '../modules/auth/store/authStore'
 import { createRouter, createWebHistory } from 'vue-router'
 
 import TheDashboard from '@/core/views/TheDashboard.vue'

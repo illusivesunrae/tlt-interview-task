@@ -106,7 +106,7 @@
 </template>
 
 <script setup>
-import { useFirebaseStore } from '../../firebase/store/firebaseStore.js';
+import { useFirebaseStore } from '../store/authStore.js';
 import { reactive, ref } from 'vue';
 import BaseInput from '@/core/components/BaseInput.vue';
 
