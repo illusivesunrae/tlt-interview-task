@@ -3,16 +3,22 @@
         <div class="rvt-container-lg">
             <div class="rvt-row">
                 <div class="tlt-form-content rvt-prose rvt-flow rvt-cols-md-up">
-                    <form @submit.prevent="submitQuiz">
+                    <div v-if="store.loading">
+                        <p>Loading...</p>
+                    </div>
+                    <form @submit.prevent="store.submitForm(props.classId, props.assignmentId)"
+                        v-if="store.checkIfAssignmentCompleted(props.classId, props.assignmentId) === false">
                         <fieldset class="rvt-fieldset">
                             <legend class="rvt-sr-only">{{ store.quizContext.name }}</legend>
                             <h1 class="rvt-p-top-sm rvt-m-bottom-lg">{{ store.quizContext.name }}</h1>
-                            <quiz-question-list v-bind:questions="store.questions"
-                                v-bind:options="store.answers"></quiz-question-list>
+                            <quiz-question-list></quiz-question-list>
                         </fieldset>
-                        <button class="rvt-button rvt-m-top-xs" type="submit" @click="submitQuiz"
+                        <button class="rvt-button rvt-m-top-xs" type="submit"
                             v-if="store.currentQuestion.index === store.questions.length - 1">Submit</button>
                     </form>
+                    <div v-else>
+                        <p>You've completed this assignment.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -20,34 +26,28 @@
 </template>
 
 <script setup>
-import { onMounted, ref, watch } from 'vue';
-import { useRoute } from 'vue-router';
+import { onMounted, watch } from 'vue';
 import { useQuizStore } from '../store/quizStore';
 import QuizQuestionList from '../components/QuizQuestionList.vue';
 
-const route = useRoute();
 const store = useQuizStore();
 
-defineProps({
-    classId: {
+const props = defineProps({
+    // Passed by the router as props
+    assignmentId: {
         type: String,
         required: true
     },
-    assignmentId: {
+    classId: {
         type: String,
         required: true
     }
 })
 
-const questions = ref(null)
+watch(() => [props.classId, props.assignmentId], store.fetchQuiz, { immediate: true })
 
-watch(() => store.questions.value, (newVal, _2) => {
-    questions.value = newVal;
-})
-
-onMounted(async () => {
-    store.fetchQuiz(+route.params.classId, +route.params.assignmentId);
-    // questions.value = await 
+onMounted(() => {
+    store.fetchQuiz(props.classId, props.assignmentId);
 })
 
 </script>
