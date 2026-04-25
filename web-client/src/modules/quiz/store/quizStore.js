@@ -13,6 +13,7 @@ export const useQuizStore = defineStore('quiz', () => {
   const activeClasses = ref([])
   const upcomingAssignments = ref([])
   const previousAssignments = ref([])
+  const assignmentCompleted = ref()
   const studentAssignmentAnswers = ref([])
   const quizContext = reactive({})
   const answers = ref([])
@@ -48,14 +49,14 @@ export const useQuizStore = defineStore('quiz', () => {
     get(dbRef(database, `classes/${classId}/students/${student}/assignments/${quizId}/answers`))
       .then((snapshot) => {
         if (snapshot.exists()) {
-          return true
+          assignmentCompleted.value = true
         }
-
-        return false
       })
       .catch((error) => {
         // TODO: add error handling
       })
+
+    assignmentCompleted.value = false
   }
 
   const fetchActiveClasses = async () => {
@@ -151,6 +152,8 @@ export const useQuizStore = defineStore('quiz', () => {
       }
 
       studentAssignmentAnswers.value = dataArray
+
+      defaults.value = dataArray
     })
   }
 
@@ -257,6 +260,7 @@ export const useQuizStore = defineStore('quiz', () => {
 
   return {
     activeClasses,
+    assignmentCompleted,
     defaults,
     upcomingAssignments,
     previousAssignments,
