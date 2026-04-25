@@ -1,5 +1,5 @@
 <template>
-    <label :for="props.for">{{ props.label }}</label>
+    <label :for="props.for">{{ props.label }}<slot></slot></label>
 </template>
 
 <script setup>
