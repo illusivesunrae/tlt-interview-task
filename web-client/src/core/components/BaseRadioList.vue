@@ -2,7 +2,8 @@
     <legend class="rvt-ts-20">{{ label }}</legend>
     <ul class="rvt-list-plain">
         <base-radio-item v-for="(option, index) in radioOptions" :name="name" :id="id + index || index" :key="index"
-            :value="option.content" :label="option.content"></base-radio-item>
+            :correct="option.correct" :value="option.content" :label="option.content"
+            :class="{ 'tlt-form--complete__list': store.assignmentCompleted, 'tlt-form--complete__list--correct': (store.assignmentCompleted && option.correct) }"></base-radio-item>
     </ul>
 </template>
 

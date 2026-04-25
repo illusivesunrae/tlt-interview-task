@@ -1,5 +1,5 @@
 <template>
-    <base-label :control="id" :label="label"></base-label>
+    <base-label :for="id" :label="label"></base-label>
     <input :type="type" :id="id" class="rvt-text-input" autocorrect="off" autocapitalize="none" autocomplete="off"
         :required="required" v-model="model" />
 </template>

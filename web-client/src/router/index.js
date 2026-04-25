@@ -5,7 +5,6 @@ import TheDashboard from '@/core/views/TheDashboard.vue'
 import AuthPage from '@/modules/auth/views/AuthPage.vue'
 import { onAuthStateChanged, getAuth } from 'firebase/auth'
 import QuizPage from '@/modules/quiz/views/QuizPage.vue'
-import QuizResultsPage from '@/modules/quiz/views/QuizResultsPage.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -15,13 +14,6 @@ const router = createRouter({
       path: '/classes/:classId/assignment-:assignmentId',
       name: 'quizPage',
       component: QuizPage,
-      props: true,
-      meta: { requiresAuth: true },
-    },
-    {
-      path: '/classes/:classId/assignment-:assignmentId/review',
-      name: 'quizResultsPage',
-      component: QuizResultsPage,
       props: true,
       meta: { requiresAuth: true },
     },

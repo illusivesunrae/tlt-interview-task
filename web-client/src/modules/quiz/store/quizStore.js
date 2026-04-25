@@ -2,14 +2,18 @@ import { get, ref as dbRef, set } from 'firebase/database'
 import { db } from '@/firebase'
 import { defineStore } from 'pinia'
 import { reactive, ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 export const useQuizStore = defineStore('quiz', () => {
+  const router = useRouter()
+
   const loading = ref(false)
   const database = db
   const defaults = ref([])
   const activeClasses = ref([])
   const upcomingAssignments = ref([])
   const previousAssignments = ref([])
+  const assignmentCompleted = ref()
   const studentAssignmentAnswers = ref([])
   const quizContext = reactive({})
   const answers = ref([])
@@ -45,14 +49,14 @@ export const useQuizStore = defineStore('quiz', () => {
     get(dbRef(database, `classes/${classId}/students/${student}/assignments/${quizId}/answers`))
       .then((snapshot) => {
         if (snapshot.exists()) {
-          return true
+          assignmentCompleted.value = true
         }
-
-        return false
       })
       .catch((error) => {
         // TODO: add error handling
       })
+
+    assignmentCompleted.value = false
   }
 
   const fetchActiveClasses = async () => {
@@ -148,6 +152,8 @@ export const useQuizStore = defineStore('quiz', () => {
       }
 
       studentAssignmentAnswers.value = dataArray
+
+      defaults.value = dataArray
     })
   }
 
@@ -246,10 +252,15 @@ export const useQuizStore = defineStore('quiz', () => {
     }).catch((error) => {
       // TODO: add error handling
     })
+
+    loading.value = true
+
+    router.push(0)
   }
 
   return {
     activeClasses,
+    assignmentCompleted,
     defaults,
     upcomingAssignments,
     previousAssignments,
