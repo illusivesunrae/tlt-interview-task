@@ -6,15 +6,19 @@
                     <div v-if="store.loading">
                         <p>Loading...</p>
                     </div>
-                    <form @submit.prevent="submitQuiz" v-if="store.quiz">
+                    <form @submit.prevent="store.submitForm(props.classId, props.assignmentId)"
+                        v-if="store.checkIfAssignmentCompleted(props.classId, props.assignmentId) === false">
                         <fieldset class="rvt-fieldset">
                             <legend class="rvt-sr-only">{{ store.quizContext.name }}</legend>
                             <h1 class="rvt-p-top-sm rvt-m-bottom-lg">{{ store.quizContext.name }}</h1>
                             <quiz-question-list></quiz-question-list>
                         </fieldset>
-                        <button class="rvt-button rvt-m-top-xs" type="submit" @click="submitQuiz"
+                        <button class="rvt-button rvt-m-top-xs" type="submit"
                             v-if="store.currentQuestion.index === store.questions.length - 1">Submit</button>
                     </form>
+                    <div v-else>
+                        <p>You've completed this assignment.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -43,7 +47,7 @@ const props = defineProps({
 watch(() => [props.classId, props.assignmentId], store.fetchQuiz, { immediate: true })
 
 onMounted(() => {
-    store.fetchQuiz(props.classId, props.assignmentId)
+    store.fetchQuiz(props.classId, props.assignmentId);
 })
 
 </script>

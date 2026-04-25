@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import { getCurrentInstance, ref, watch } from 'vue';
+import { getCurrentInstance } from 'vue';
 import { useQuizStore } from '../store/quizStore';
 import RadioList from '@/core/components/BaseRadioList.vue';
 

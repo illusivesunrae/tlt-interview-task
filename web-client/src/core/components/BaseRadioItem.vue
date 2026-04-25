@@ -1,14 +1,14 @@
 <template>
     <li class="rvt-radio rvt-radio--tile">
         <div class=" rvt-radio">
-            <input type="radio" :name="props.name" :id="props.id" :value="props.value" v-model="radioSelection" />
+            <input type="radio" :name="props.name" :id="props.id" :value="props.value"
+                v-model="store.defaults[questionIndex]" />
             <base-label :for="props.id" :label="props.value"></base-label>
         </div>
     </li>
 </template>
 
 <script setup>
-import { onMounted, ref, watch } from 'vue';
 import { useQuizStore } from '@/modules/quiz/store/quizStore';
 import BaseLabel from './BaseLabel.vue';
 
@@ -25,26 +25,12 @@ const props = defineProps({
     },
     value: {
         required: true
-    },
-    label: {
-        type: String,
-        required: true
     }
 });
 
-// break id apart, get post q, pre -
+// // break id apart, get post q, pre -
 const questionIndex = props.id.match(/(?<=q)\d+(?=-)/g);
 
-const radioSelections = ref([]);
-const radioSelection = ref('');
-
-watch(() => radioSelections.value, (newVal, oldVal) => {
-    radioSelection.value = radioSelections.value[0].content
-})
-
-onMounted(() => {
-    radioSelections.value = store.returnRelatedAnswers(questionIndex);
-})
 </script>
 
 <style lang="scss">

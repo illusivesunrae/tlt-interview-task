@@ -1,4 +1,4 @@
-import { child, endAt, get, orderByChild, query, ref as dbRef, startAt } from 'firebase/database'
+import { get, ref as dbRef, set } from 'firebase/database'
 import { db } from '@/firebase'
 import { defineStore } from 'pinia'
 import { reactive, ref } from 'vue'
@@ -6,6 +6,7 @@ import { reactive, ref } from 'vue'
 export const useQuizStore = defineStore('quiz', () => {
   const loading = ref(false)
   const database = db
+  const defaults = ref([])
   const activeClasses = ref([])
   const upcomingAssignments = ref([])
   const previousAssignments = ref([])
@@ -14,6 +15,7 @@ export const useQuizStore = defineStore('quiz', () => {
   const answers = ref([])
   const quiz = ref([])
   const questions = ref([])
+  const formData = ref([])
 
   const currentQuestion = reactive({
     index: 0,
@@ -34,6 +36,23 @@ export const useQuizStore = defineStore('quiz', () => {
     const endPoint = startPoint + 4
 
     return answers.value.slice(startPoint, endPoint)
+  }
+
+  const checkIfAssignmentCompleted = (classId, quizId) => {
+    loading.value = true
+    const student = localStorage.getItem('username')
+
+    get(dbRef(database, `classes/${classId}/students/${student}/assignments/${quizId}/answers`))
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          return true
+        }
+
+        return false
+      })
+      .catch((error) => {
+        // TODO: add error handling
+      })
   }
 
   const fetchActiveClasses = async () => {
@@ -129,7 +148,6 @@ export const useQuizStore = defineStore('quiz', () => {
       }
 
       studentAssignmentAnswers.value = dataArray
-      console.log(dataArray)
     })
   }
 
@@ -165,9 +183,28 @@ export const useQuizStore = defineStore('quiz', () => {
         questions.value = questionsArray.flat()
         answers.value = answersArray.flat()
 
+        setDefaultSelections()
+
         loading.value = false
       })
       .catch((error) => {})
+  }
+
+  const setDefaultSelections = () => {
+    // get all questions, loop through
+    let answerLoop = ref([])
+
+    questions.value.forEach((question, index) => {
+      // get each set of answers
+      for (let i = 0; i < 1; i++) {
+        answerLoop.value.push(returnRelatedAnswers(index))
+      }
+    })
+
+    // for each set, set the first answer as the default
+    answerLoop.value.forEach((answer, index) => {
+      defaults.value.push(answer[0].content)
+    })
   }
 
   const showNextQuestion = () => {
@@ -198,8 +235,22 @@ export const useQuizStore = defineStore('quiz', () => {
     }
   }
 
+  const submitForm = (classId, quizId) => {
+    loading.value = true
+
+    const student = localStorage.getItem('username')
+
+    set(dbRef(database, `classes/${classId}/students/${student}/assignments/${quizId}`), {
+      answers: defaults.value,
+      grade: null,
+    }).catch((error) => {
+      // TODO: add error handling
+    })
+  }
+
   return {
     activeClasses,
+    defaults,
     upcomingAssignments,
     previousAssignments,
     studentAssignmentAnswers,
@@ -210,7 +261,9 @@ export const useQuizStore = defineStore('quiz', () => {
     currentQuestion,
     nextQuestion,
     previousQuestion,
+    setDefaultSelections,
     setResponse,
+    checkIfAssignmentCompleted,
     fetchActiveClasses,
     fetchUpcomingAssignments,
     fetchPreviousAssignments,
@@ -219,5 +272,6 @@ export const useQuizStore = defineStore('quiz', () => {
     showNextQuestion,
     showPreviousQuestion,
     returnRelatedAnswers,
+    submitForm,
   }
 })
