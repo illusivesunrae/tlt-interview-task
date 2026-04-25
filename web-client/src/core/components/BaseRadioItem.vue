@@ -1,27 +1,27 @@
 <template>
     <li class="rvt-radio rvt-radio--tile">
         <div class=" rvt-radio">
-            <input type="radio" v-bind:name="group" v-bind:id="id" v-bind:value="value" v-model="chosenAnswer">
-            <base-label v-bind:correct="correct" v-bind:control="id" v-html="label"></base-label>
+            <input type="radio" :name="props.name" :id="props.id" :value="props.value" v-model="radioSelection" />
+            <base-label :for="props.id" :label="props.value"></base-label>
         </div>
     </li>
 </template>
 
 <script setup>
-import { onMounted, ref, toRef, watch } from 'vue';
+import { onMounted, ref, watch } from 'vue';
+import { useQuizStore } from '@/modules/quiz/store/quizStore';
 import BaseLabel from './BaseLabel.vue';
 
+const store = useQuizStore();
+
 const props = defineProps({
-    group: {
-        type: String,
-        required: true
-    },
     id: {
         type: String,
         required: true
     },
-    index: {
-        type: Number
+    name: {
+        type: String,
+        required: true
     },
     value: {
         required: true
@@ -29,31 +29,22 @@ const props = defineProps({
     label: {
         type: String,
         required: true
-    },
-    checked: {
-        type: Boolean,
-        default: false
-    },
-    studentAnswer: {
-        type: Number
-    },
-    correct: {
-        type: Boolean
     }
 });
 
-let chosenAnswer = ref()
+// break id apart, get post q, pre -
+const questionIndex = props.id.match(/(?<=q)\d+(?=-)/g);
 
-watch(() => props.studentAnswer, (newVal, _) => {
-    console.log(props.studentAnswer)
-    if (props.studentAnswer === props.index) {
+const radioSelections = ref([]);
+const radioSelection = ref('');
 
-        chosenAnswer.value = props.value
-        console.log(chosenAnswer)
-    }
-}, { immediate: true })
+watch(() => radioSelections.value, (newVal, oldVal) => {
+    radioSelection.value = radioSelections.value[0].content
+})
 
-const model = defineModel()
+onMounted(() => {
+    radioSelections.value = store.returnRelatedAnswers(questionIndex);
+})
 </script>
 
 <style lang="scss">
