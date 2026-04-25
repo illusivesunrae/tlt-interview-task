@@ -3,14 +3,13 @@
         <div class="rvt-container-lg">
             <div class="rvt-row">
                 <div class="tlt-form-content rvt-prose rvt-flow rvt-cols-md-up">
-                    <form>
+                    <!-- <form>
                         <fieldset class="rvt-fieldset">
                             <legend class="rvt-sr-only">Review: {{ store.quizContext.name }}</legend>
                             <h1 class="rvt-p-top-sm rvt-m-bottom-lg">{{ store.quizContext.name }}</h1>
-                            <quiz-question-list v-bind:questions="store.questions" v-bind:options="store.answers"
-                                v-bind:studentAnswers="store.studentAssignmentAnswers"></quiz-question-list>
+                            <quiz-question-list></quiz-question-list>
                         </fieldset>
-                    </form>
+                    </form> -->
                 </div>
             </div>
         </div>
@@ -18,37 +17,24 @@
 </template>
 
 <script setup>
-import { onMounted, ref, watch } from 'vue';
-import { useRoute } from 'vue-router';
-import { useQuizStore } from '../store/quizStore';
-import QuizQuestionList from '../components/QuizQuestionList.vue';
+// import { onMounted, ref, watch } from 'vue';
+// import { useRoute } from 'vue-router';
+// import { useQuizStore } from '../store/quizStore';
+// import QuizQuestionList from '../components/QuizQuestionList.vue';
 
-const route = useRoute();
-const store = useQuizStore();
-
-defineProps({
-    classId: {
-        type: String,
-        required: true
-    },
-    assignmentId: {
-        type: String,
-        required: true
-    },
-    studentAnswers: {
-        type: Array
-    }
-})
-
-watch(() => store.studentAssignmentAnswers, (newVal, _) => {
-    console.log(newVal)
-})
+// const route = useRoute();
+// const store = useQuizStore();
 
 
-onMounted(async () => {
-    store.fetchQuiz(+route.params.classId, +route.params.assignmentId);
-    store.fetchStudentAnswers(+route.params.classId, +route.params.assignmentId);
-})
+// watch(() => store.studentAssignmentAnswers, (newVal, _) => {
+//     console.log(newVal)
+// })
+
+
+// onMounted(async () => {
+//     store.fetchQuiz(+route.params.classId, +route.params.assignmentId);
+//     store.fetchStudentAnswers(+route.params.classId, +route.params.assignmentId);
+// })
 
 </script>
 

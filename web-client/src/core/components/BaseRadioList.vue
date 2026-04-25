@@ -1,52 +1,42 @@
 <template>
-    <legend class="rvt-ts-20">{{ `${optionsId + 1}. ${content}` }}</legend>
+    <legend class="rvt-ts-20">{{ label }}</legend>
     <ul class="rvt-list-plain">
-        <base-radio-item v-for="(option, index) in options" v-bind:group="`Question ${optionsId}`" :key="index"
-            v-bind:correct="option.correct" v-bind:options="options.value" v-bind:id="`q${optionsId}-a${index}`"
-            v-bind:index="index" v-bind:value="option.content" v-bind:label="option.content"
-            v-bind:studentAnswer="studentAnswer"></base-radio-item>
+        <base-radio-item v-for="(option, index) in radioOptions" :name="name" :id="id + index || index" :key="index"
+            :value="option.content" :label="option.content"></base-radio-item>
     </ul>
 </template>
 
 <script setup>
-import { useQuizStore } from '../modules/quiz/store/quizStore';
+import { useQuizStore } from '@/modules/quiz/store/quizStore';
 import { ref, toRef, watch } from 'vue';
 import BaseRadioItem from './BaseRadioItem.vue';
 
 const store = useQuizStore();
 
 const props = defineProps({
-    content: {
+    index: {
+        type: Number,
+        required: false
+    },
+    label: {
         type: String,
-        required: true
+        required: false
     },
     options: {
         type: Array,
-        required: true
-    },
-    optionsId: {
-        type: Number,
-        required: true
-    },
-    studentAnswer: {
-        type: Number
-    },
-    index: {
-        type: Number
-    },
-    correct: {
-        type: Boolean
+        required: false
     }
 })
 
-// const selected = ref();
-// const optionsRef = toRef(props, 'options');
-// const optionsIdRef = toRef(props, 'optionsId');
+const label = toRef(props.label) || ref('');
+const radioOptions = toRef(props.options) || ref([]);
+const name = toRef(props.name) || ref('');
+const id = ref('');
 
-// const selection = store.returnRelatedAnswers(optionsIdRef.value, optionsRef.value)
-// console.log(selection)
-// selected.value = selection[0].content
-// console.log(selected.value)
-
-
+watch(() => props.index, (_, _2) => {
+    label.value = `${props.index + 1}. ${store.questions[props.index]}`;
+    radioOptions.value = store.returnRelatedAnswers(props.index);
+    name.value = `question-${props.index}`;
+    id.value = `q${props.index}-a`;
+}, { immediate: true })
 </script>

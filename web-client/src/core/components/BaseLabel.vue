@@ -1,9 +1,9 @@
 <template>
-    <label :for="control" :class="{ 'rvt-success': correct, 'rvt-error': !correct }">{{ label }}</label>
+    <label :for="props.for">{{ props.label }}</label>
 </template>
 
 <script setup>
-const props = defineProps(['label', 'control', 'correct']);
+const props = defineProps(['label', 'for']);
 </script>
 
 <style lang="scss">

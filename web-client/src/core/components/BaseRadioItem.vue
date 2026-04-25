@@ -1,59 +1,36 @@
 <template>
     <li class="rvt-radio rvt-radio--tile">
         <div class=" rvt-radio">
-            <input type="radio" v-bind:name="group" v-bind:id="id" v-bind:value="value" v-model="chosenAnswer">
-            <base-label v-bind:correct="correct" v-bind:control="id" v-html="label"></base-label>
+            <input type="radio" :name="props.name" :id="props.id" :value="props.value"
+                v-model="store.defaults[questionIndex]" />
+            <base-label :for="props.id" :label="props.value"></base-label>
         </div>
     </li>
 </template>
 
 <script setup>
-import { onMounted, ref, toRef, watch } from 'vue';
+import { useQuizStore } from '@/modules/quiz/store/quizStore';
 import BaseLabel from './BaseLabel.vue';
 
+const store = useQuizStore();
+
 const props = defineProps({
-    group: {
-        type: String,
-        required: true
-    },
     id: {
         type: String,
         required: true
     },
-    index: {
-        type: Number
-    },
-    value: {
-        required: true
-    },
-    label: {
+    name: {
         type: String,
         required: true
     },
-    checked: {
-        type: Boolean,
-        default: false
-    },
-    studentAnswer: {
-        type: Number
-    },
-    correct: {
-        type: Boolean
+    value: {
+        required: true
     }
 });
 
-let chosenAnswer = ref()
+// // break id apart, get post q, pre -
+const questionIndex = props.id.match(/(?<=q)\d+(?=-)/g);
 
-watch(() => props.studentAnswer, (newVal, _) => {
-    console.log(props.studentAnswer)
-    if (props.studentAnswer === props.index) {
-
-        chosenAnswer.value = props.value
-        console.log(chosenAnswer)
-    }
-}, { immediate: true })
-
-const model = defineModel()
 </script>
 
 <style lang="scss">
