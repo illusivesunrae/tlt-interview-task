@@ -25,11 +25,14 @@
 
 <script setup>
 import { useQuizStore } from '@/modules/quiz/store/quizStore';
-import { onMounted, watch } from 'vue';
+import { useOfflineStore } from '@/modules/offline/store/offlineStore';
+import { onMounted, ref, watch, watchEffect } from 'vue';
 import { useRoute } from 'vue-router';
 import BaseLabel from './BaseLabel.vue';
 
-const store = useQuizStore();
+const offline = ref(import.meta.env.VITE_demo_mode === 'true')
+const store = ref(null);
+
 const route = useRoute();
 
 const props = defineProps({
@@ -61,12 +64,20 @@ watch(() => store.studentAssignmentAnswers, (newVal, _) => {
     console.log(store.defaults[questionIndex])
 })
 
+watchEffect(async () => {
+    if (!offline.value) {
+        // Dynamic import to keep the bundle small
+        store.value = useQuizStore();
+    } else {
+        store.value = useOfflineStore();
+    }
+});
+
 onMounted(() => {
     if (store.assignmentCompleted) {
         store.fetchStudentAnswers(+route.params.classId, +route.params.assignmentId);
     }
 })
-
 </script>
 
 <style lang="scss">

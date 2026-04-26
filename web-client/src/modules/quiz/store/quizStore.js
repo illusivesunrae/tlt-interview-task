@@ -8,18 +8,16 @@ export const useQuizStore = defineStore('quiz', () => {
   const router = useRouter()
 
   const loading = ref(false)
+  const activeClasses = ref([])
+  const answers = ref([])
+  const assignmentCompleted = ref()
   const database = db
   const defaults = ref([])
-  const activeClasses = ref([])
-  const upcomingAssignments = ref([])
   const previousAssignments = ref([])
-  const assignmentCompleted = ref()
-  const studentAssignmentAnswers = ref([])
-  const quizContext = reactive({})
-  const answers = ref([])
-  const quiz = ref([])
   const questions = ref([])
-  const formData = ref([])
+  const quizContext = reactive({})
+  const studentAssignmentAnswers = ref([])
+  const upcomingAssignments = ref([])
 
   const currentQuestion = reactive({
     index: 0,
@@ -30,17 +28,6 @@ export const useQuizStore = defineStore('quiz', () => {
   const previousQuestion = reactive({
     index: null,
   })
-
-  const setResponse = (type, payload) => {
-    type = payload
-  }
-
-  const returnRelatedAnswers = (questionIndex) => {
-    const startPoint = questionIndex * 4
-    const endPoint = startPoint + 4
-
-    return answers.value.slice(startPoint, endPoint)
-  }
 
   const checkIfAssignmentCompleted = (classId, quizId) => {
     loading.value = true
@@ -80,6 +67,92 @@ export const useQuizStore = defineStore('quiz', () => {
     })
   }
 
+  const fetchPreviousAssignments = async (classId) => {
+    const endDate = new Date().toISOString()
+
+    get(dbRef(database, `classes/${classId}/assignments`)).then((snapshot) => {
+      let dataArray = []
+      if (snapshot.exists()) {
+        snapshot.forEach((childSnapshot, index) => {
+          const mergedData = {
+            ...childSnapshot.val(),
+            classId: classId,
+            id: childSnapshot.key,
+          }
+
+          dataArray.push(mergedData)
+        })
+      }
+      const filterDates = (item) => {
+        if (endDate.localeCompare(item.dueDate) >= 0) {
+          previousAssignments.value.push(item)
+          return true
+        }
+        return false
+      }
+      dataArray.filter(filterDates)
+    })
+  }
+
+  const fetchQuiz = async (classId, quizId) => {
+    loading.value = true
+
+    get(dbRef(database, `classes/${classId}/assignments/${quizId}`))
+      .then((snapshot) => {
+        let dataObject = {}
+        let quizArray = []
+        let questionsArray = []
+        let answersArray = []
+
+        if (snapshot.exists()) {
+          dataObject = snapshot.val()
+          snapshot.forEach((childSnapshot) => {
+            if (childSnapshot.key === 'content') {
+              let classData = childSnapshot.val()
+
+              for (const [_, value] of Object.entries(classData)) {
+                questionsArray.push(value.question)
+                answersArray.push(value.answers)
+              }
+            }
+          })
+        }
+        for (const [key, value] of Object.entries(dataObject)) {
+          quizContext[key] = value
+        }
+
+        // questions.value -> Proxy array ex. 0: "Who wrote the novel Dawn?"
+        questions.value = questionsArray.flat()
+        // answers.value -> Proxy array object  ex. 0: Object { content: "Octavia Butler", correct: true}
+        answers.value = answersArray.flat()
+
+        setDefaultSelections()
+
+        loading.value = false
+      })
+      .catch((error) => {})
+  }
+
+  const fetchStudentAnswers = async (classId, assignmentId) => {
+    const student = localStorage.getItem('username')
+
+    get(
+      dbRef(database, `classes/${classId}/students/${student}/assignments/${assignmentId}/answers`),
+    ).then((snapshot) => {
+      let dataArray = []
+      if (snapshot.exists()) {
+        snapshot.forEach((childSnapshot, index) => {
+          dataArray.push(childSnapshot.val())
+        })
+      }
+
+      // studentAssignmentAnswers.value -> Proxy array ex. 0: "Octavia Butler"
+      studentAssignmentAnswers.value = dataArray
+
+      defaults.value = dataArray
+    })
+  }
+
   const fetchUpcomingAssignments = async (classId) => {
     const startDate = new Date().toISOString()
     const endDate = new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000).toISOString()
@@ -111,89 +184,11 @@ export const useQuizStore = defineStore('quiz', () => {
     })
   }
 
-  const fetchPreviousAssignments = async (classId) => {
-    const endDate = new Date().toISOString()
+  const returnRelatedAnswers = (questionIndex) => {
+    const startPoint = questionIndex * 4
+    const endPoint = startPoint + 4
 
-    get(dbRef(database, `classes/${classId}/assignments`)).then((snapshot) => {
-      let dataArray = []
-      if (snapshot.exists()) {
-        snapshot.forEach((childSnapshot, index) => {
-          const mergedData = {
-            ...childSnapshot.val(),
-            classId: classId,
-            id: childSnapshot.key,
-          }
-
-          dataArray.push(mergedData)
-        })
-      }
-      const filterDates = (item) => {
-        if (endDate.localeCompare(item.dueDate) >= 0) {
-          previousAssignments.value.push(item)
-          return true
-        }
-        return false
-      }
-      dataArray.filter(filterDates)
-    })
-  }
-
-  const fetchStudentAnswers = async (classId, assignmentId) => {
-    const student = localStorage.getItem('username')
-
-    get(
-      dbRef(database, `classes/${classId}/students/${student}/assignments/${assignmentId}/answers`),
-    ).then((snapshot) => {
-      let dataArray = []
-      if (snapshot.exists()) {
-        snapshot.forEach((childSnapshot, index) => {
-          dataArray.push(childSnapshot.val())
-        })
-      }
-
-      studentAssignmentAnswers.value = dataArray
-
-      defaults.value = dataArray
-    })
-  }
-
-  const fetchQuiz = async (classId, quizId) => {
-    loading.value = true
-
-    get(dbRef(database, `classes/${classId}/assignments/${quizId}`))
-      .then((snapshot) => {
-        let dataObject = {}
-        let quizArray = []
-        let questionsArray = []
-        let answersArray = []
-
-        if (snapshot.exists()) {
-          dataObject = snapshot.val()
-          snapshot.forEach((childSnapshot) => {
-            if (childSnapshot.key === 'content') {
-              let classData = childSnapshot.val()
-
-              for (const [_, value] of Object.entries(classData)) {
-                quizArray.push(value)
-                questionsArray.push(value.question)
-                answersArray.push(value.answers)
-              }
-            }
-          })
-        }
-        for (const [key, value] of Object.entries(dataObject)) {
-          quizContext[key] = value
-        }
-
-        quiz.value = quizArray
-        questions.value = questionsArray.flat()
-        answers.value = answersArray.flat()
-
-        setDefaultSelections()
-
-        loading.value = false
-      })
-      .catch((error) => {})
+    return answers.value.slice(startPoint, endPoint)
   }
 
   const setDefaultSelections = () => {
@@ -260,20 +255,18 @@ export const useQuizStore = defineStore('quiz', () => {
 
   return {
     activeClasses,
+    answers,
     assignmentCompleted,
     defaults,
-    upcomingAssignments,
     previousAssignments,
-    studentAssignmentAnswers,
-    quizContext,
-    quiz,
     questions,
-    answers,
+    quizContext,
+    upcomingAssignments,
+    studentAssignmentAnswers,
     currentQuestion,
     nextQuestion,
     previousQuestion,
     setDefaultSelections,
-    setResponse,
     checkIfAssignmentCompleted,
     fetchActiveClasses,
     fetchUpcomingAssignments,
