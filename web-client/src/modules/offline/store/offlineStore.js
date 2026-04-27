@@ -1,6 +1,5 @@
 import { defineStore } from 'pinia'
 import { reactive, ref } from 'vue'
-import { useRouter } from 'vue-router'
 
 export const useOfflineStore = defineStore('offline', () => {
   const activeClasses = ref([])

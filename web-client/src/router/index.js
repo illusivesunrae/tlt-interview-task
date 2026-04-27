@@ -1,9 +1,12 @@
-import { useFirebaseStore } from '../modules/auth/store/authStore'
+import { useFirebase } from '@/core/composables/useFirebase'
 import { onAuthStateChanged, getAuth } from 'firebase/auth'
 import { createRouter, createWebHistory } from 'vue-router'
+
 import TheDashboard from '@/core/views/TheDashboard.vue'
 import AuthPage from '@/modules/auth/views/AuthPage.vue'
 import QuizPage from '@/modules/quiz/views/QuizPage.vue'
+
+const offline = import.meta.env.VITE_demo_mode === 'true'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -54,12 +57,9 @@ const getCurrentUser = () => {
 }
 
 router.beforeEach(async (to, from, next) => {
-  const store = useFirebaseStore()
+  if (!offline) {
+    const store = useFirebase()
 
-  if (import.meta.env.VITE_demo_mode === 'true') {
-    localStorage.setItem('username', 'racmocon')
-    next()
-  } else {
     if (to.matched.some((record) => record.meta.requiresAuth)) {
       if (await getCurrentUser()) {
         next()
@@ -75,6 +75,14 @@ router.beforeEach(async (to, from, next) => {
     } else {
       next('/')
     }
+  } else {
+    localStorage.setItem('username', 'racmocon')
+
+    if (to.path === '/auth') {
+      next('/')
+    }
+
+    next()
   }
 })
 

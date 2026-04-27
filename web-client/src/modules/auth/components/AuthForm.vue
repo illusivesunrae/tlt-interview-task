@@ -1,5 +1,5 @@
 <template>
-    <div class="rvt-tabs tlt-tabs centered" data-rvt-tabs="tabset-1">
+    <div class="rvt-tabs tlt-tabs centered" data-rvt-tabs="tabset-1" v-if="!offline">
         <div class="rvt-tabs__tablist lockup-tabs" aria-label="Rivet tabs" data-rvt-tablist>
             <button type="button" class="rvt-tabs__tab tlt-tabs__tab rvt-bg-white" data-rvt-tab
                 :class="{ 'tlt-tabs__tab--active': panel === 'login' }" @click="changeTab">Login</button>
@@ -106,13 +106,15 @@
 </template>
 
 <script setup>
-import { useFirebaseStore } from '../store/authStore.js';
-import { reactive, ref } from 'vue';
-import BaseInput from '@/core/components/BaseInput.vue';
+import { useFirebase } from '@/core/composables/useFirebase'
+import { reactive, ref } from 'vue'
+import BaseInput from '@/core/components/BaseInput.vue'
 
-const store = useFirebaseStore();
+const offline = ref(import.meta.env.VITE_demo_mode === 'true')
 
-const panel = ref('login');
+const store = useFirebase()
+
+const panel = ref('login')
 
 const registrationForm = reactive({
     newEmail: '',
@@ -124,11 +126,11 @@ const loginForm = reactive({
     password: ''
 })
 
-const newPassword = defineModel('newPassword');
+const newPassword = defineModel('newPassword')
 
 
 const changeTab = () => {
-    panel.value === 'login' ? panel.value = 'createAccount' : panel.value = 'login';
+    panel.value === 'login' ? panel.value = 'createAccount' : panel.value = 'login'
 }
 </script>
 
