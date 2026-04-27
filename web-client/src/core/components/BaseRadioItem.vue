@@ -24,16 +24,14 @@
 </template>
 
 <script setup>
-import { useQuizStore } from '@/modules/quiz/store/quizStore';
-import { useOfflineStore } from '@/modules/offline/store/offlineStore';
-import { onMounted, ref, watch, watchEffect } from 'vue';
-import { useRoute } from 'vue-router';
-import BaseLabel from './BaseLabel.vue';
+import { useEnvironmentStore } from '../composables/useEnvironmentStore'
+import { onMounted } from 'vue'
+import { useRoute } from 'vue-router'
+import BaseLabel from './BaseLabel.vue'
 
-const offline = ref(import.meta.env.VITE_demo_mode === 'true')
-const store = ref(null);
+const store = useEnvironmentStore()
 
-const route = useRoute();
+const route = useRoute()
 
 const props = defineProps({
     id: {
@@ -58,24 +56,11 @@ const props = defineProps({
 });
 
 // // break id apart, get post q, pre -
-const questionIndex = props.id.match(/(?<=q)\d+(?=-)/g);
-
-watch(() => store.studentAssignmentAnswers, (newVal, _) => {
-    console.log(store.defaults[questionIndex])
-})
-
-watchEffect(async () => {
-    if (!offline.value) {
-        // Dynamic import to keep the bundle small
-        store.value = useQuizStore();
-    } else {
-        store.value = useOfflineStore();
-    }
-});
+const questionIndex = props.id.match(/(?<=q)\d+(?=-)/g)
 
 onMounted(() => {
     if (store.assignmentCompleted) {
-        store.fetchStudentAnswers(+route.params.classId, +route.params.assignmentId);
+        store.fetchStudentAnswers(+route.params.classId, +route.params.assignmentId)
     }
 })
 </script>
