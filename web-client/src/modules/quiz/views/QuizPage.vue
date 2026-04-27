@@ -10,7 +10,11 @@
                             <fieldset class="rvt-fieldset">
                                 <legend class="rvt-sr-only">{{ store.quizContext.name }}
                                 </legend>
-                                <h1 class="rvt-p-top-sm rvt-m-bottom-lg">{{ store.quizContext.name }}</h1>
+                                <h1 class="rvt-p-top-sm"
+                                    :class="store.studentAssignmentGrade ? 'rvt-m-bottom-sm' : 'rvt-m-bottom-lg'">{{
+                                        store.quizContext.name }}</h1>
+                                <h2 class="rvt-m-bottom-lg" v-if="store.studentAssignmentGrade">Results: {{
+                                    store.studentAssignmentGrade }}%</h2>
                                 <quiz-question-list :key="store.formKey"></quiz-question-list>
                             </fieldset>
                             <button class="rvt-button rvt-m-top-xs" type="submit"
@@ -22,7 +26,11 @@
                                 <fieldset class="rvt-fieldset">
                                     <legend class="rvt-sr-only">{{ store.quizContext.name }}
                                     </legend>
-                                    <h1 class="rvt-p-top-sm rvt-m-bottom-lg">{{ store.quizContext.name }}</h1>
+                                    <h1 class="rvt-p-top-sm"
+                                        :class="store.studentAssignmentGrade ? 'rvt-m-bottom-sm' : 'rvt-m-bottom-lg'">
+                                        {{ store.quizContext.name }}</h1>
+                                    <h2 class="rvt-m-bottom-lg" v-if="store.studentAssignmentGrade">Results: {{
+                                        store.studentAssignmentGrade }}%</h2>
                                     <quiz-question-list></quiz-question-list>
                                 </fieldset>
                             </form>
@@ -55,8 +63,6 @@ const props = defineProps({
     }
 })
 
-
-
 const forceRefresh = () => {
     store.formKey += 1
     store.currentQuestion.index = 0
@@ -72,6 +78,7 @@ const handleSubmission = () => {
 
 watch(() => [+props.classId, +props.assignmentId], store.fetchQuiz, { immediate: true })
 
+
 watch(() => store.formKey, (newVal, _2) => {
     if (newVal !== 0) {
         if (!offline.value) {
@@ -81,6 +88,18 @@ watch(() => store.formKey, (newVal, _2) => {
         }
     }
 }, { immediate: true })
+
+watch(() => store.assignmentCompleted, (newVal, _2) => {
+    if (!offline.value) {
+        store.fetchStudentsGrade(+props.classId, +props.assignmentId)
+    } else {
+        if (store.formKey === 0) {
+            store.fetchStudentsGrade(+props.classId, +props.assignmentId)
+        } else {
+            store.fetchStudentsGradeLocal(+props.classId, +props.assignmentId)
+        }
+    }
+})
 
 onMounted(() => {
     store.fetchQuiz(+props.classId, +props.assignmentId)

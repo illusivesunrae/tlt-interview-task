@@ -5,6 +5,7 @@ export const useOfflineStore = defineStore('offline', () => {
   const activeClasses = ref([])
   const answers = ref([])
   const assignmentCompleted = ref()
+  const correctAnswers = ref([])
   const defaults = ref([])
   const formKey = ref(0)
   const offlineMode = ref(import.meta.env.VITE_demo_mode === 'true')
@@ -12,6 +13,7 @@ export const useOfflineStore = defineStore('offline', () => {
   const questions = ref([])
   const quizContext = reactive({})
   const studentAssignmentAnswers = ref([])
+  const studentAssignmentGrade = ref(null)
   const upcomingAssignments = ref([])
 
   const currentQuestion = reactive({
@@ -23,6 +25,14 @@ export const useOfflineStore = defineStore('offline', () => {
   const previousQuestion = reactive({
     index: null,
   })
+
+  const calculateScore = () => {
+    const testAnswers = new Set(correctAnswers.value)
+    const studentAnswers = new Set(defaults.value)
+
+    const incorrectAnswers = studentAnswers.intersection(testAnswers)
+    return +((incorrectAnswers.size / testAnswers.size) * 100).toFixed(2)
+  }
 
   const checkIfAssignmentCompleted = (classId, quizId) => {
     const student = localStorage.getItem('username')
@@ -109,9 +119,9 @@ export const useOfflineStore = defineStore('offline', () => {
         return response.json()
       })
       .then((data) => {
-        let quizArray = []
         let questionsArray = []
         let answersArray = []
+        let correctAnswersArray = []
 
         let contextObject = data.classes[classId].assignments[quizId]
 
@@ -126,6 +136,10 @@ export const useOfflineStore = defineStore('offline', () => {
 
           for (const [answer, index] of Object.entries(value.answers)) {
             answersArray.push(index)
+
+            if (index.correct === true) {
+              correctAnswersArray.push(index.content)
+            }
           }
         }
 
@@ -133,6 +147,8 @@ export const useOfflineStore = defineStore('offline', () => {
         questions.value = questionsArray.flat()
         // answers.value -> Proxy array object  ex. 0: Object { content: "Octavia Butler", correct: true}
         answers.value = answersArray.flat()
+        // correctAnswers.value -> Proxy array ex. 0: "Octavia Butler"
+        correctAnswers.value = correctAnswersArray.flat()
 
         setDefaultSelections()
       })
@@ -182,8 +198,6 @@ export const useOfflineStore = defineStore('offline', () => {
     let contextObject =
       parsedData.classes[classId].students[student].assignments[assignmentId].answers
 
-    console.log(contextObject)
-
     for (const [key, value] of Object.entries(contextObject)) {
       dataArray.push(value)
     }
@@ -191,6 +205,35 @@ export const useOfflineStore = defineStore('offline', () => {
     studentAssignmentAnswers.value = dataArray
 
     defaults.value = dataArray
+  }
+
+  const fetchStudentsGrade = async (classId, assignmentId) => {
+    const student = localStorage.getItem('username')
+
+    fetch('/class-related-data.json')
+      .then((response) => {
+        return response.json()
+      })
+      .then((data) => {
+        let contextNumber = data.classes[classId].students[student].assignments[assignmentId].grade
+
+        studentAssignmentGrade.value = contextNumber
+      })
+      .catch((error) => {
+        // TODO: add error handling
+      })
+  }
+
+  const fetchStudentsGradeLocal = async (classId, assignmentId) => {
+    const student = localStorage.getItem('username')
+
+    const savedData = localStorage.getItem('quizData')
+    const parsedData = JSON.parse(savedData)
+
+    let contextNumber =
+      parsedData.classes[classId].students[student].assignments[assignmentId].grade
+
+    studentAssignmentGrade.value = contextNumber
   }
 
   const fetchUpcomingAssignments = async (classId) => {
@@ -288,11 +331,15 @@ export const useOfflineStore = defineStore('offline', () => {
   const submitForm = (classId, quizId) => {
     const student = localStorage.getItem('username')
 
+    studentAssignmentGrade.value = calculateScore()
+
     const formattedDefaults = JSON.stringify({ ...defaults.value })
 
-    let quizData = `{"classes":{"${classId}":{"students":{"${student}":{"assignments":{"${quizId}":{"answers": ${formattedDefaults}}}}}}}}`
+    let quizData = `{"classes":{"${classId}":{"students":{"${student}":{"assignments":{"${quizId}":{"answers": ${formattedDefaults},"grade":${studentAssignmentGrade.value}}}}}}}}`
 
     localStorage.setItem('quizData', quizData)
+
+    studentAssignmentGrade.value = true
   }
 
   return {
@@ -306,6 +353,7 @@ export const useOfflineStore = defineStore('offline', () => {
     questions,
     quizContext,
     studentAssignmentAnswers,
+    studentAssignmentGrade,
     upcomingAssignments,
     checkIfAssignmentCompleted,
     currentQuestion,
@@ -316,6 +364,8 @@ export const useOfflineStore = defineStore('offline', () => {
     fetchQuiz,
     fetchStudentAnswers,
     fetchStudentAnswersLocal,
+    fetchStudentsGrade,
+    fetchStudentsGradeLocal,
     fetchUpcomingAssignments,
     returnRelatedAnswers,
     setDefaultSelections,
