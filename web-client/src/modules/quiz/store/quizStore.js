@@ -2,11 +2,8 @@ import { get, ref as dbRef, set } from 'firebase/database'
 import { db } from '@/firebase'
 import { defineStore } from 'pinia'
 import { reactive, ref } from 'vue'
-import { useRouter } from 'vue-router'
 
 export const useQuizStore = defineStore('quiz', () => {
-  const router = useRouter()
-
   const loading = ref(false)
   const activeClasses = ref([])
   const answers = ref([])
@@ -236,8 +233,6 @@ export const useQuizStore = defineStore('quiz', () => {
   }
 
   const submitForm = (classId, quizId) => {
-    loading.value = true
-
     const student = localStorage.getItem('username')
 
     set(dbRef(database, `classes/${classId}/students/${student}/assignments/${quizId}`), {
@@ -246,10 +241,6 @@ export const useQuizStore = defineStore('quiz', () => {
     }).catch((error) => {
       // TODO: add error handling
     })
-
-    loading.value = true
-
-    router.push(0)
   }
 
   return {

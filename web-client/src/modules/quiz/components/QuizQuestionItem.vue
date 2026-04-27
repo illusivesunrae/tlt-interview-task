@@ -20,7 +20,6 @@ const currentIndex = reactive({
 
 currentIndex.index = store.currentQuestion.index
 
-
 watch(() => store.currentQuestion.index, (newVal, _2) => {
     currentIndex.index = newVal
 }, { immediate: true })
