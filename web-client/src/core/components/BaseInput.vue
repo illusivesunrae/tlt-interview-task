@@ -5,9 +5,9 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { computed } from 'vue'
 
-import BaseLabel from './BaseLabel.vue';
+import BaseLabel from './BaseLabel.vue'
 
 const model = defineModel({ type: String })
 
@@ -28,7 +28,7 @@ defineProps({
         type: String,
         required: true,
     }
-});
+})
 </script>
 
 <style lang="scss">

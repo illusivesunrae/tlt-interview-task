@@ -24,16 +24,16 @@
 </template>
 
 <script setup>
-import { useQuizStore } from '@/modules/quiz/store/quizStore';
-import { useOfflineStore } from '@/modules/offline/store/offlineStore';
-import { onMounted, ref, watch, watchEffect } from 'vue';
-import { useRoute } from 'vue-router';
-import BaseLabel from './BaseLabel.vue';
+import { useEnvironmentStore } from '../composables/useEnvironmentStore'
+import { onMounted, ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
+import BaseLabel from './BaseLabel.vue'
+
+const store = useEnvironmentStore()
+
+const route = useRoute()
 
 const offline = ref(import.meta.env.VITE_demo_mode === 'true')
-const store = ref(null);
-
-const route = useRoute();
 
 const props = defineProps({
     id: {
@@ -55,27 +55,32 @@ const props = defineProps({
         type: Boolean,
         required: false
     }
-});
-
-// // break id apart, get post q, pre -
-const questionIndex = props.id.match(/(?<=q)\d+(?=-)/g);
-
-watch(() => store.studentAssignmentAnswers, (newVal, _) => {
-    console.log(store.defaults[questionIndex])
 })
 
-watchEffect(async () => {
-    if (!offline.value) {
-        // Dynamic import to keep the bundle small
-        store.value = useQuizStore();
-    } else {
-        store.value = useOfflineStore();
+// // break id apart, get post q, pre -
+const questionIndex = props.id.match(/(?<=q)\d+(?=-)/g)
+
+watch(() => store.formKey.value, (newVal, _2) => {
+    if (newVal >= 1) {
+        if (offline.value) {
+            store.checkIfAssignmentCompleted(+props.classId, +props.assignmentId)
+        }
     }
-});
+}, { immediate: true })
+
+watch(() => store.assignmentCompleted.value, (newVal, _) => {
+    if (offline.value && store.formKey >= 1) {
+        store.fetchStudentAnswersLocal(+route.params.classId, +route.params.assignmentId)
+    }
+})
 
 onMounted(() => {
     if (store.assignmentCompleted) {
-        store.fetchStudentAnswers(+route.params.classId, +route.params.assignmentId);
+        if (offline.value && store.formKey >= 1) {
+            store.fetchStudentAnswersLocal(+route.params.classId, +route.params.assignmentId)
+        } else {
+            store.fetchStudentAnswers(+route.params.classId, +route.params.assignmentId)
+        }
     }
 })
 </script>

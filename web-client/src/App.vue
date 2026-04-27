@@ -1,15 +1,15 @@
 <script setup>
-import { computed, onMounted, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue'
 import { RouterLink, RouterView, useRoute } from 'vue-router'
-import AuthFooter from '@/modules/auth/components/AuthFooter.vue';
-import AuthHeader from '@/modules/auth/components/AuthHeader.vue';
-import BaseFooter from '@/core/components/BaseFooter.vue';
-import BaseHeader from '@/core/components/BaseHeader.vue';
+import AuthFooter from '@/modules/auth/components/AuthFooter.vue'
+import AuthHeader from '@/modules/auth/components/AuthHeader.vue'
+import BaseFooter from '@/core/components/BaseFooter.vue'
+import BaseHeader from '@/core/components/BaseHeader.vue'
 
-const route = useRoute();
+const route = useRoute()
 
 const authColor = computed(() => {
-  route.meta.color || 'inherit';
+  route.meta.color || 'inherit'
 })
 </script>
 

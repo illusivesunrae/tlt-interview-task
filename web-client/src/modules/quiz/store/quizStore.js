@@ -2,17 +2,15 @@ import { get, ref as dbRef, set } from 'firebase/database'
 import { db } from '@/firebase'
 import { defineStore } from 'pinia'
 import { reactive, ref } from 'vue'
-import { useRouter } from 'vue-router'
 
 export const useQuizStore = defineStore('quiz', () => {
-  const router = useRouter()
-
   const loading = ref(false)
   const activeClasses = ref([])
   const answers = ref([])
   const assignmentCompleted = ref()
   const database = db
   const defaults = ref([])
+  const formKey = ref(0)
   const previousAssignments = ref([])
   const questions = ref([])
   const quizContext = reactive({})
@@ -148,14 +146,13 @@ export const useQuizStore = defineStore('quiz', () => {
 
       // studentAssignmentAnswers.value -> Proxy array ex. 0: "Octavia Butler"
       studentAssignmentAnswers.value = dataArray
-
       defaults.value = dataArray
     })
   }
 
   const fetchUpcomingAssignments = async (classId) => {
     const startDate = new Date().toISOString()
-    const endDate = new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000).toISOString()
+    const endDate = new Date(new Date().getTime() + 35 * 24 * 60 * 60 * 1000).toISOString()
 
     get(dbRef(database, `classes/${classId}/assignments`)).then((snapshot) => {
       let dataArray = []
@@ -237,8 +234,6 @@ export const useQuizStore = defineStore('quiz', () => {
   }
 
   const submitForm = (classId, quizId) => {
-    loading.value = true
-
     const student = localStorage.getItem('username')
 
     set(dbRef(database, `classes/${classId}/students/${student}/assignments/${quizId}`), {
@@ -247,10 +242,6 @@ export const useQuizStore = defineStore('quiz', () => {
     }).catch((error) => {
       // TODO: add error handling
     })
-
-    loading.value = true
-
-    router.push(0)
   }
 
   return {
@@ -258,6 +249,7 @@ export const useQuizStore = defineStore('quiz', () => {
     answers,
     assignmentCompleted,
     defaults,
+    formKey,
     previousAssignments,
     questions,
     quizContext,

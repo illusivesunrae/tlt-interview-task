@@ -102,8 +102,8 @@
                                     </div>
                                     <div class="rvt-ts-14 rvt-m-left-xs rvt-p-right-xs rvt-m-right-xs rvt-border-right">
                                         {{ username }}</div>
-                                    <button type="button" style="" class="rvt-button rvt-ts-14"
-                                        @click="store.logout()">Log
+                                    <button type="button" style="" class="rvt-button rvt-ts-14" @click="store.logout()"
+                                        v-if="!offline">Log
                                         out</button>
                                 </div>
                             </nav>
@@ -116,13 +116,16 @@
 </template>
 
 <script setup>
-import { useFirebaseStore } from '../../modules/auth/store/authStore';
-import { ref } from 'vue';
+import { useFirebase } from '../composables/useFirebase'
+import { ref } from 'vue'
 
-const store = useFirebaseStore();
 
-const username = ref(localStorage.getItem('username') || 'Guest');
-const usernameLetter = username.value.charAt(0).toUpperCase();
+const offline = ref(import.meta.env.VITE_demo_mode === 'true')
+
+const store = useFirebase()
+
+const username = ref(localStorage.getItem('username') || 'racmocon')
+const usernameLetter = username.value.charAt(0).toUpperCase()
 </script>
 
 <style lang="scss" scoped>
