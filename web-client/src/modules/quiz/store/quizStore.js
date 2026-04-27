@@ -154,7 +154,7 @@ export const useQuizStore = defineStore('quiz', () => {
 
   const fetchUpcomingAssignments = async (classId) => {
     const startDate = new Date().toISOString()
-    const endDate = new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000).toISOString()
+    const endDate = new Date(new Date().getTime() + 35 * 24 * 60 * 60 * 1000).toISOString()
 
     get(dbRef(database, `classes/${classId}/assignments`)).then((snapshot) => {
       let dataArray = []

@@ -168,7 +168,7 @@ export const useOfflineStore = defineStore('offline', () => {
 
   const fetchUpcomingAssignments = async (classId) => {
     const startDate = new Date().toISOString()
-    const endDate = new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000).toISOString()
+    const endDate = new Date(new Date().getTime() + 35 * 24 * 60 * 60 * 1000).toISOString()
 
     fetch('/class-related-data.json')
       .then((response) => {

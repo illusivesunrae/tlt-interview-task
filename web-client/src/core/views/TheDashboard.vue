@@ -4,7 +4,7 @@
             <div class="rvt-prose rvt-flow">
                 <h1 class="rvt-m-top-xs">IU Student Dashboard</h1>
                 <div class="rvt-m-top-xxl rvt-p-top-xxl rvt-border-top">
-                    <base-card raised warning type="upcoming" title="Upcoming Assignments" badge="Due this week"
+                    <base-card raised warning type="upcoming" title="Upcoming Assignments" badge="Due this month(ish)"
                         v-if="store.upcomingAssignments" :assignments="store.upcomingAssignments"></base-card>
                     <base-card raised success type="previous" title="Previous Assignments"
                         v-if="store.previousAssignments" :assignments="store.previousAssignments"></base-card>

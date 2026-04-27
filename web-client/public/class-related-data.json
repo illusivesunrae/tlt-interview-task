@@ -16,7 +16,7 @@
                 "3": "A Memory Called Empire",
                 "4": "Solaris"
               },
-              "grade": 90
+              "grade": 25
             },
             "2": {
               "answers": {
@@ -203,8 +203,94 @@
         "3": {
           "type": "assessment",
           "name": "Exam 1",
-          "dueDate": "2026-04-23T02:00:00Z",
-          "timeLimit": 1200000
+          "dueDate": "2026-05-23T02:00:00Z",
+          "timeLimit": 1200000,
+          "content": {
+            "1": {
+              "question": "Who wrote the novel Dawn?",
+              "answers": {
+                "1": {
+                  "content": "Octavia Butler",
+                  "correct": true
+                },
+                "2": {
+                  "content": "Samuel R. Delany",
+                  "correct": false
+                },
+                "3": {
+                  "content": "George Orwell",
+                  "correct": false
+                },
+                "4": {
+                  "content": "C.L. Moore",
+                  "correct": false
+                }
+              }
+            },
+            "2": {
+              "question": "What is the sub-genre of Shambleau?",
+              "answers": {
+                "1": {
+                  "content": "Space Western",
+                  "correct": true
+                },
+                "2": {
+                  "content": "Space Opera",
+                  "correct": false
+                },
+                "3": {
+                  "content": "Cyberpunk",
+                  "correct": false
+                },
+                "4": {
+                  "content": "Hard sci-fi",
+                  "correct": false
+                }
+              }
+            },
+            "3": {
+              "question": "Which of these is a short story?",
+              "answers": {
+                "1": {
+                  "content": "Journey to the Center of the Earth",
+                  "correct": false
+                },
+                "2": {
+                  "content": "A Memory Called Empire",
+                  "correct": false
+                },
+                "3": {
+                  "content": "There Will Come Soft Rains",
+                  "correct": true
+                },
+                "4": {
+                  "content": "Do Androids Dream of Electric Sheep?",
+                  "correct": false
+                }
+              }
+            },
+            "4": {
+              "question": "Which of the following was written by the Strugatskii brothers?",
+              "answers": {
+                "1": {
+                  "content": "Story of Your Life",
+                  "correct": false
+                },
+                "2": {
+                  "content": "Roadside Picnic",
+                  "correct": true
+                },
+                "3": {
+                  "content": "The Left Hand of Darkness",
+                  "correct": false
+                },
+                "4": {
+                  "content": "Solaris",
+                  "correct": false
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -217,10 +303,10 @@
           "assignments": {
             "1": {
               "answers": {
-                "1": "Octavia Butler",
-                "2": "Space Opera",
-                "3": "A Memory Called Empire",
-                "4": "Solaris"
+                "1": "C.L. Moore",
+                "2": "Space Western",
+                "3": "Do Androids Dream of Electric Sheep?",
+                "4": "Story of Your Life"
               },
               "grade": 90
             },
@@ -229,10 +315,10 @@
             },
             "3": {
               "answers": {
-                "1": "Octavia Butler",
-                "2": "Cyberpunk",
-                "3": "Journey to the Center of the Earth",
-                "4": "Roadside Picnic"
+                "1": null,
+                "2": null,
+                "3": null,
+                "4": null
               },
               "grade": null
             }
@@ -379,7 +465,7 @@
         "3": {
           "type": "quiz",
           "name": "Quiz #2",
-          "dueDate": "2026-04-25T03:59:59Z",
+          "dueDate": "2026-05-30T03:59:59Z",
           "timeLimit": 1200000,
           "content": {
             "1": {
@@ -476,17 +562,34 @@
       "instructorId": 1,
       "students": {
         "racmocon": {
-          "grades": {
-            "1": 90,
-            "2": 98,
-            "3": null
-          }
-        },
-        "andrewjquick": {
-          "grades": {
-            "1": 0,
-            "2": 100,
-            "3": null
+          "assignments": {
+            "1": {
+              "answers": {
+                "1": "George Orwell",
+                "2": "Hard sci-fi",
+                "3": "Journey to the Center of the Earth",
+                "4": "Roadside Picnic"
+              },
+              "grade": 25
+            },
+            "2": {
+              "answers": {
+                "1": 3,
+                "2": 1,
+                "3": 2,
+                "4": 1
+              },
+              "grade": 90
+            },
+            "3": {
+              "answers": {
+                "1": null,
+                "2": null,
+                "3": null,
+                "4": null
+              },
+              "grade": null
+            }
           }
         },
         "jasmineCat": {
@@ -499,10 +602,96 @@
       },
       "assignments": {
         "1": {
-          "type": "artifact",
-          "name": "Video Introduction",
+          "type": "quiz",
+          "name": "Quiz #1",
           "dueDate": "2026-03-30T03:59:59Z",
-          "timeLimit": null
+          "timeLimit": null,
+          "content": {
+            "1": {
+              "question": "Who wrote the novel Dawn?",
+              "answers": {
+                "1": {
+                  "content": "Octavia Butler",
+                  "correct": true
+                },
+                "2": {
+                  "content": "Samuel R. Delany",
+                  "correct": false
+                },
+                "3": {
+                  "content": "George Orwell",
+                  "correct": false
+                },
+                "4": {
+                  "content": "C.L. Moore",
+                  "correct": false
+                }
+              }
+            },
+            "2": {
+              "question": "What is the sub-genre of Shambleau?",
+              "answers": {
+                "1": {
+                  "content": "Space Western",
+                  "correct": true
+                },
+                "2": {
+                  "content": "Space Opera",
+                  "correct": false
+                },
+                "3": {
+                  "content": "Cyberpunk",
+                  "correct": false
+                },
+                "4": {
+                  "content": "Hard sci-fi",
+                  "correct": false
+                }
+              }
+            },
+            "3": {
+              "question": "Which of these is a short story?",
+              "answers": {
+                "1": {
+                  "content": "Journey to the Center of the Earth",
+                  "correct": false
+                },
+                "2": {
+                  "content": "A Memory Called Empire",
+                  "correct": false
+                },
+                "3": {
+                  "content": "There Will Come Soft Rains",
+                  "correct": true
+                },
+                "4": {
+                  "content": "Do Androids Dream of Electric Sheep?",
+                  "correct": false
+                }
+              }
+            },
+            "4": {
+              "question": "Which of the following was written by the Strugatskii brothers?",
+              "answers": {
+                "1": {
+                  "content": "Story of Your Life",
+                  "correct": false
+                },
+                "2": {
+                  "content": "Roadside Picnic",
+                  "correct": true
+                },
+                "3": {
+                  "content": "The Left Hand of Darkness",
+                  "correct": false
+                },
+                "4": {
+                  "content": "Solaris",
+                  "correct": false
+                }
+              }
+            }
+          }
         },
         "2": {
           "type": "artifact",
@@ -513,8 +702,94 @@
         "3": {
           "type": "assessment",
           "name": "Exam #1",
-          "dueDate": "2026-04-27T03:59:59Z",
-          "timeLimit": 6000000
+          "dueDate": "2026-05-31T03:59:59Z",
+          "timeLimit": 6000000,
+          "content": {
+            "1": {
+              "question": "Who wrote the novel Dawn?",
+              "answers": {
+                "1": {
+                  "content": "Octavia Butler",
+                  "correct": true
+                },
+                "2": {
+                  "content": "Samuel R. Delany",
+                  "correct": false
+                },
+                "3": {
+                  "content": "George Orwell",
+                  "correct": false
+                },
+                "4": {
+                  "content": "C.L. Moore",
+                  "correct": false
+                }
+              }
+            },
+            "2": {
+              "question": "What is the sub-genre of Shambleau?",
+              "answers": {
+                "1": {
+                  "content": "Space Western",
+                  "correct": true
+                },
+                "2": {
+                  "content": "Space Opera",
+                  "correct": false
+                },
+                "3": {
+                  "content": "Cyberpunk",
+                  "correct": false
+                },
+                "4": {
+                  "content": "Hard sci-fi",
+                  "correct": false
+                }
+              }
+            },
+            "3": {
+              "question": "Which of these is a short story?",
+              "answers": {
+                "1": {
+                  "content": "Journey to the Center of the Earth",
+                  "correct": false
+                },
+                "2": {
+                  "content": "A Memory Called Empire",
+                  "correct": false
+                },
+                "3": {
+                  "content": "There Will Come Soft Rains",
+                  "correct": true
+                },
+                "4": {
+                  "content": "Do Androids Dream of Electric Sheep?",
+                  "correct": false
+                }
+              }
+            },
+            "4": {
+              "question": "Which of the following was written by the Strugatskii brothers?",
+              "answers": {
+                "1": {
+                  "content": "Story of Your Life",
+                  "correct": false
+                },
+                "2": {
+                  "content": "Roadside Picnic",
+                  "correct": true
+                },
+                "3": {
+                  "content": "The Left Hand of Darkness",
+                  "correct": false
+                },
+                "4": {
+                  "content": "Solaris",
+                  "correct": false
+                }
+              }
+            }
+          }
         }
       }
     }
