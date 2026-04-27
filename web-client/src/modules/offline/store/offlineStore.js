@@ -6,6 +6,7 @@ export const useOfflineStore = defineStore('offline', () => {
   const answers = ref([])
   const assignmentCompleted = ref()
   const defaults = ref([])
+  const formKey = ref(0)
   const offlineMode = ref(import.meta.env.VITE_demo_mode === 'true')
   const previousAssignments = ref([])
   const questions = ref([])
@@ -166,6 +167,32 @@ export const useOfflineStore = defineStore('offline', () => {
       })
   }
 
+  const fetchStudentAnswersLocal = async (classId, assignmentId) => {
+    let dataArray = []
+
+    const student = localStorage.getItem('username')
+
+    const savedData = localStorage.getItem('quizData')
+    const parsedData = JSON.parse(savedData)
+
+    if (classId !== parsedData.classes[classId]) {
+      return
+    }
+
+    let contextObject =
+      parsedData.classes[classId].students[student].assignments[assignmentId].answers
+
+    console.log(contextObject)
+
+    for (const [key, value] of Object.entries(contextObject)) {
+      dataArray.push(value)
+    }
+
+    studentAssignmentAnswers.value = dataArray
+
+    defaults.value = dataArray
+  }
+
   const fetchUpcomingAssignments = async (classId) => {
     const startDate = new Date().toISOString()
     const endDate = new Date(new Date().getTime() + 35 * 24 * 60 * 60 * 1000).toISOString()
@@ -258,11 +285,22 @@ export const useOfflineStore = defineStore('offline', () => {
     }
   }
 
+  const submitForm = (classId, quizId) => {
+    const student = localStorage.getItem('username')
+
+    const formattedDefaults = JSON.stringify({ ...defaults.value })
+
+    let quizData = `{"classes":{"${classId}":{"students":{"${student}":{"assignments":{"${quizId}":{"answers": ${formattedDefaults}}}}}}}}`
+
+    localStorage.setItem('quizData', quizData)
+  }
+
   return {
     activeClasses,
     answers,
     assignmentCompleted,
     defaults,
+    formKey,
     offlineMode,
     previousAssignments,
     questions,
@@ -277,10 +315,12 @@ export const useOfflineStore = defineStore('offline', () => {
     fetchPreviousAssignments,
     fetchQuiz,
     fetchStudentAnswers,
+    fetchStudentAnswersLocal,
     fetchUpcomingAssignments,
     returnRelatedAnswers,
     setDefaultSelections,
     showNextQuestion,
     showPreviousQuestion,
+    submitForm,
   }
 })

@@ -4,13 +4,14 @@
             <div class="rvt-row">
                 <div class="tlt-form-content rvt-prose rvt-flow rvt-cols-md-up">
                     <div>
-                        <p v-if="offline">You are offline and will not be able to submit your work.</p>
+                        <p v-if="offline">You are offline, so this is only being simulated through a combination of
+                            local JSON data and local storage.</p>
                         <form @submit.prevent="handleSubmission" v-if="store.assignmentCompleted === false">
                             <fieldset class="rvt-fieldset">
                                 <legend class="rvt-sr-only">{{ store.quizContext.name }}
                                 </legend>
                                 <h1 class="rvt-p-top-sm rvt-m-bottom-lg">{{ store.quizContext.name }}</h1>
-                                <quiz-question-list :key="formKey"></quiz-question-list>
+                                <quiz-question-list :key="store.formKey"></quiz-question-list>
                             </fieldset>
                             <button class="rvt-button rvt-m-top-xs" type="submit"
                                 v-if="store.currentQuestion.index === store.questions.length - 1">Submit</button>
@@ -40,12 +41,6 @@ import QuizQuestionList from '../components/QuizQuestionList.vue'
 
 const offline = ref(import.meta.env.VITE_demo_mode === 'true')
 
-// const instance = getCurrentInstance()
-
-// const forceUpdate = () => {
-//     instance.proxy.$forceUpdate()
-// };
-
 const store = useEnvironmentStore()
 
 const props = defineProps({
@@ -60,28 +55,30 @@ const props = defineProps({
     }
 })
 
-const formKey = ref(0)
+
 
 const forceRefresh = () => {
-    formKey.value += 1
+    store.formKey += 1
     store.currentQuestion.index = 0
     store.previousQuestion.index = null
     store.nextQuestion.index = 1
 }
 
 const handleSubmission = () => {
-    if (!offline.value) {
+    store.submitForm(props.classId, props.assignmentId)
 
-        store.submitForm(props.classId, props.assignmentId)
-        forceRefresh()
-    }
+    forceRefresh()
 };
 
 watch(() => [+props.classId, +props.assignmentId], store.fetchQuiz, { immediate: true })
 
-watch(() => formKey.value, (newVal, _2) => {
+watch(() => store.formKey, (newVal, _2) => {
     if (newVal !== 0) {
-        store.checkIfAssignmentCompleted(+props.classId, +props.assignmentId)
+        if (!offline.value) {
+            store.checkIfAssignmentCompleted(+props.classId, +props.assignmentId)
+        } else {
+            store.assignmentCompleted = true
+        }
     }
 }, { immediate: true })
 

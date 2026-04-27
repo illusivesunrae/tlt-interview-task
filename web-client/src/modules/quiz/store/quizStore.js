@@ -10,6 +10,7 @@ export const useQuizStore = defineStore('quiz', () => {
   const assignmentCompleted = ref()
   const database = db
   const defaults = ref([])
+  const formKey = ref(0)
   const previousAssignments = ref([])
   const questions = ref([])
   const quizContext = reactive({})
@@ -248,6 +249,7 @@ export const useQuizStore = defineStore('quiz', () => {
     answers,
     assignmentCompleted,
     defaults,
+    formKey,
     previousAssignments,
     questions,
     quizContext,

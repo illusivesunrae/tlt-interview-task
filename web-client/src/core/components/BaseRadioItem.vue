@@ -25,13 +25,15 @@
 
 <script setup>
 import { useEnvironmentStore } from '../composables/useEnvironmentStore'
-import { onMounted } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import BaseLabel from './BaseLabel.vue'
 
 const store = useEnvironmentStore()
 
 const route = useRoute()
+
+const offline = ref(import.meta.env.VITE_demo_mode === 'true')
 
 const props = defineProps({
     id: {
@@ -58,9 +60,27 @@ const props = defineProps({
 // // break id apart, get post q, pre -
 const questionIndex = props.id.match(/(?<=q)\d+(?=-)/g)
 
+watch(() => store.formKey.value, (newVal, _2) => {
+    if (newVal >= 1) {
+        if (offline.value) {
+            store.checkIfAssignmentCompleted(+props.classId, +props.assignmentId)
+        }
+    }
+}, { immediate: true })
+
+watch(() => store.assignmentCompleted.value, (newVal, _) => {
+    if (offline.value && store.formKey >= 1) {
+        store.fetchStudentAnswersLocal(+route.params.classId, +route.params.assignmentId)
+    }
+})
+
 onMounted(() => {
     if (store.assignmentCompleted) {
-        store.fetchStudentAnswers(+route.params.classId, +route.params.assignmentId)
+        if (offline.value && store.formKey >= 1) {
+            store.fetchStudentAnswersLocal(+route.params.classId, +route.params.assignmentId)
+        } else {
+            store.fetchStudentAnswers(+route.params.classId, +route.params.assignmentId)
+        }
     }
 })
 </script>
