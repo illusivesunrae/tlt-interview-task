@@ -1,12 +1,12 @@
 import { defineStore } from 'pinia'
 import { reactive, ref } from 'vue'
-import { useRouter } from 'vue-router'
 
 export const useOfflineStore = defineStore('offline', () => {
   const activeClasses = ref([])
   const answers = ref([])
   const assignmentCompleted = ref()
   const defaults = ref([])
+  const formKey = ref(0)
   const offlineMode = ref(import.meta.env.VITE_demo_mode === 'true')
   const previousAssignments = ref([])
   const questions = ref([])
@@ -151,48 +151,51 @@ export const useOfflineStore = defineStore('offline', () => {
       .then((data) => {
         let dataArray = []
 
-        let contextObject = data.classes[classId].students[student].assignments[assignmentId]
-
-        console.log(contextObject)
+        let contextObject =
+          data.classes[classId].students[student].assignments[assignmentId].answers
 
         for (const [key, value] of Object.entries(contextObject)) {
-          quizContext[key] = value
+          dataArray.push(value)
         }
 
-        let classData = data.classes[classId].assignments[assignmentId].content
+        studentAssignmentAnswers.value = dataArray
 
-        console.log(classData)
-
-        // for (const [_, value] of Object.entries(classData)) {
-        // }
-
-        // studentAssignmentAnswers.value = dataArray
-
-        // defaults.value = dataArray
+        defaults.value = dataArray
       })
       .catch((error) => {
         // TODO: add error handling
       })
+  }
 
-    // get(
-    //   dbRef(database, `classes/${classId}/students/${student}/assignments/${assignmentId}/answers`),
-    // ).then((snapshot) => {
-    //   let dataArray = []
-    //   if (snapshot.exists()) {
-    //     snapshot.forEach((childSnapshot, index) => {
-    //       dataArray.push(childSnapshot.val())
-    //     })
-    //   }
+  const fetchStudentAnswersLocal = async (classId, assignmentId) => {
+    let dataArray = []
 
-    //   studentAssignmentAnswers.value = dataArray
+    const student = localStorage.getItem('username')
 
-    //   defaults.value = dataArray
-    // })
+    const savedData = localStorage.getItem('quizData')
+    const parsedData = JSON.parse(savedData)
+
+    if (classId !== parsedData.classes[classId]) {
+      return
+    }
+
+    let contextObject =
+      parsedData.classes[classId].students[student].assignments[assignmentId].answers
+
+    console.log(contextObject)
+
+    for (const [key, value] of Object.entries(contextObject)) {
+      dataArray.push(value)
+    }
+
+    studentAssignmentAnswers.value = dataArray
+
+    defaults.value = dataArray
   }
 
   const fetchUpcomingAssignments = async (classId) => {
     const startDate = new Date().toISOString()
-    const endDate = new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000).toISOString()
+    const endDate = new Date(new Date().getTime() + 35 * 24 * 60 * 60 * 1000).toISOString()
 
     fetch('/class-related-data.json')
       .then((response) => {
@@ -282,11 +285,22 @@ export const useOfflineStore = defineStore('offline', () => {
     }
   }
 
+  const submitForm = (classId, quizId) => {
+    const student = localStorage.getItem('username')
+
+    const formattedDefaults = JSON.stringify({ ...defaults.value })
+
+    let quizData = `{"classes":{"${classId}":{"students":{"${student}":{"assignments":{"${quizId}":{"answers": ${formattedDefaults}}}}}}}}`
+
+    localStorage.setItem('quizData', quizData)
+  }
+
   return {
     activeClasses,
     answers,
     assignmentCompleted,
     defaults,
+    formKey,
     offlineMode,
     previousAssignments,
     questions,
@@ -301,10 +315,12 @@ export const useOfflineStore = defineStore('offline', () => {
     fetchPreviousAssignments,
     fetchQuiz,
     fetchStudentAnswers,
+    fetchStudentAnswersLocal,
     fetchUpcomingAssignments,
     returnRelatedAnswers,
     setDefaultSelections,
     showNextQuestion,
     showPreviousQuestion,
+    submitForm,
   }
 })

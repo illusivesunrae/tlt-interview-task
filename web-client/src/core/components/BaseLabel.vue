@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-const props = defineProps(['label', 'for']);
+const props = defineProps(['label', 'for'])
 </script>
 
 <style lang="scss">

@@ -4,7 +4,7 @@
             :class="{ 'rvt-bg-gold-000': warning, 'rvt-bg-green-000': success }">
             <h2 class="rvt-ts-20">{{ title }}</h2>
             <span class="rvt-badge rvt-m-left-sm" :class="{ 'rvt-badge--warning': warning }" v-if="badge">{{ badge
-                }}</span>
+            }}</span>
         </div>
         <div class="rvt-card__content [ rvt-p-top-none rvt-m-top-none rvt-border-top-none ]" v-if="assignments">
             <ul class="rvt-list-plain">
@@ -33,7 +33,7 @@
 </template>
 
 <script setup>
-import { ref, toRef } from 'vue';
+import { toRef } from 'vue'
 const props = defineProps({
     assignments: {
         type: Array,
@@ -67,15 +67,13 @@ const props = defineProps({
         type: String,
         required: true
     }
-});
-
-const typesRef = toRef(props, 'type');
+})
 
 const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday',
-    'Thursday', 'Friday', 'Saturday'];
+    'Thursday', 'Friday', 'Saturday']
 
 const formatDate = (date) => {
-    return `${dayNames[new Date(date).getDay()]} at ${new Date(date).toLocaleTimeString('default', { hour: '2-digit', minute: '2-digit' })}`;
+    return `${dayNames[new Date(date).getDay()]} at ${new Date(date).toLocaleTimeString('default', { hour: '2-digit', minute: '2-digit' })}`
 }
 </script>
 

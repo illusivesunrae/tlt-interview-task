@@ -6,8 +6,8 @@
 </template>
 
 <script setup>
-import BaseTabList from './BaseTabList.vue';
-import BaseTabPanel from './BaseTabPanel.vue';
+import BaseTabList from './BaseTabList.vue'
+import BaseTabPanel from './BaseTabPanel.vue'
 
 defineProps({
     tabs: {

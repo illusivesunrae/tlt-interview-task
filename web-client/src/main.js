@@ -1,9 +1,14 @@
 import { createApp } from 'vue'
-import { firebaseApp } from './firebase'
 import { createPinia } from 'pinia'
 
 import App from './App.vue'
 import router from './router/'
+
+const offline = import.meta.env.VITE_demo_mode === 'true'
+
+if (!offline) {
+  const { default: firebaseApp } = await import('./firebase')
+}
 
 const app = createApp(App)
 

@@ -8,5 +8,5 @@
 </template>
 
 <script setup>
-defineProps(['section', 'questions']);
+defineProps(['section', 'questions'])
 </script>

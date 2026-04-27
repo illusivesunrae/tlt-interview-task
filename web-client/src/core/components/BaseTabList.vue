@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import BaseTabItem from './BaseTabItem.vue';
+import BaseTabItem from './BaseTabItem.vue'
 
 defineProps({
     tabs: {
