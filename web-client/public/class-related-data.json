@@ -217,10 +217,10 @@
           "assignments": {
             "1": {
               "answers": {
-                "1": 3,
-                "2": 1,
-                "3": 2,
-                "4": 1
+                "1": "Octavia Butler",
+                "2": "Space Opera",
+                "3": "A Memory Called Empire",
+                "4": "Solaris"
               },
               "grade": 90
             },
@@ -229,10 +229,10 @@
             },
             "3": {
               "answers": {
-                "1": null,
-                "2": null,
-                "3": null,
-                "4": null
+                "1": "Octavia Butler",
+                "2": "Cyberpunk",
+                "3": "Journey to the Center of the Earth",
+                "4": "Roadside Picnic"
               },
               "grade": null
             }

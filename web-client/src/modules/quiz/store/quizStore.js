@@ -148,7 +148,6 @@ export const useQuizStore = defineStore('quiz', () => {
 
       // studentAssignmentAnswers.value -> Proxy array ex. 0: "Octavia Butler"
       studentAssignmentAnswers.value = dataArray
-
       defaults.value = dataArray
     })
   }

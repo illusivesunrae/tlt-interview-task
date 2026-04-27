@@ -151,43 +151,20 @@ export const useOfflineStore = defineStore('offline', () => {
       .then((data) => {
         let dataArray = []
 
-        let contextObject = data.classes[classId].students[student].assignments[assignmentId]
-
-        console.log(contextObject)
+        let contextObject =
+          data.classes[classId].students[student].assignments[assignmentId].answers
 
         for (const [key, value] of Object.entries(contextObject)) {
-          quizContext[key] = value
+          dataArray.push(value)
         }
 
-        let classData = data.classes[classId].assignments[assignmentId].content
+        studentAssignmentAnswers.value = dataArray
 
-        console.log(classData)
-
-        // for (const [_, value] of Object.entries(classData)) {
-        // }
-
-        // studentAssignmentAnswers.value = dataArray
-
-        // defaults.value = dataArray
+        defaults.value = dataArray
       })
       .catch((error) => {
         // TODO: add error handling
       })
-
-    // get(
-    //   dbRef(database, `classes/${classId}/students/${student}/assignments/${assignmentId}/answers`),
-    // ).then((snapshot) => {
-    //   let dataArray = []
-    //   if (snapshot.exists()) {
-    //     snapshot.forEach((childSnapshot, index) => {
-    //       dataArray.push(childSnapshot.val())
-    //     })
-    //   }
-
-    //   studentAssignmentAnswers.value = dataArray
-
-    //   defaults.value = dataArray
-    // })
   }
 
   const fetchUpcomingAssignments = async (classId) => {
