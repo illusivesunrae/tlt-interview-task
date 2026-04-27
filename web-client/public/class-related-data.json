@@ -19,21 +19,11 @@
               "grade": 25
             },
             "2": {
-              "answers": {
-                "1": 3,
-                "2": 1,
-                "3": 2,
-                "4": 1
-              },
-              "grade": 90
+              "answers": null,
+              "grade": null
             },
             "3": {
-              "answers": {
-                "1": null,
-                "2": null,
-                "3": null,
-                "4": null
-              },
+              "answers": null,
               "grade": null
             }
           }
@@ -47,7 +37,7 @@
                 "3": null,
                 "4": null
               },
-              "grade": 0
+              "grade": null
             },
             "2": {
               "answers": {
@@ -56,7 +46,7 @@
                 "3": null,
                 "4": null
               },
-              "grade": 0
+              "grade": null
             },
             "3": {
               "answers": {
@@ -308,18 +298,14 @@
                 "3": "Do Androids Dream of Electric Sheep?",
                 "4": "Story of Your Life"
               },
-              "grade": 90
+              "grade": 25
             },
             "2": {
-              "grade": 90
+              "answers": null,
+              "grade": null
             },
             "3": {
-              "answers": {
-                "1": null,
-                "2": null,
-                "3": null,
-                "4": null
-              },
+              "answers": null,
               "grade": null
             }
           }
@@ -573,13 +559,8 @@
               "grade": 25
             },
             "2": {
-              "answers": {
-                "1": 3,
-                "2": 1,
-                "3": 2,
-                "4": 1
-              },
-              "grade": 90
+              "answers": null,
+              "grade": null
             },
             "3": {
               "answers": null,
