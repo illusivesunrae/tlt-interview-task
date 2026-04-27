@@ -8,6 +8,7 @@ export const useQuizStore = defineStore('quiz', () => {
   const activeClasses = ref([])
   const answers = ref([])
   const assignmentCompleted = ref()
+  const correctAnswers = ref([])
   const database = db
   const defaults = ref([])
   const formKey = ref(0)
@@ -15,6 +16,7 @@ export const useQuizStore = defineStore('quiz', () => {
   const questions = ref([])
   const quizContext = reactive({})
   const studentAssignmentAnswers = ref([])
+  const studentAssignmentGrade = ref(null)
   const upcomingAssignments = ref([])
 
   const currentQuestion = reactive({
@@ -26,6 +28,14 @@ export const useQuizStore = defineStore('quiz', () => {
   const previousQuestion = reactive({
     index: null,
   })
+
+  const calculateScore = () => {
+    const testAnswers = new Set(correctAnswers.value)
+    const studentAnswers = new Set(defaults.value)
+
+    const incorrectAnswers = studentAnswers.intersection(testAnswers)
+    return +((incorrectAnswers.size / testAnswers.size) * 100).toFixed(2)
+  }
 
   const checkIfAssignmentCompleted = (classId, quizId) => {
     loading.value = true
@@ -98,9 +108,9 @@ export const useQuizStore = defineStore('quiz', () => {
     get(dbRef(database, `classes/${classId}/assignments/${quizId}`))
       .then((snapshot) => {
         let dataObject = {}
-        let quizArray = []
         let questionsArray = []
         let answersArray = []
+        let correctAnswersArray = []
 
         if (snapshot.exists()) {
           dataObject = snapshot.val()
@@ -108,9 +118,15 @@ export const useQuizStore = defineStore('quiz', () => {
             if (childSnapshot.key === 'content') {
               let classData = childSnapshot.val()
 
-              for (const [_, value] of Object.entries(classData)) {
+              for (const [key, value] of Object.entries(classData)) {
                 questionsArray.push(value.question)
                 answersArray.push(value.answers)
+
+                value.answers.forEach((type, tag) => {
+                  if (type.correct === true) {
+                    correctAnswersArray.push(type.content)
+                  }
+                })
               }
             }
           })
@@ -123,6 +139,8 @@ export const useQuizStore = defineStore('quiz', () => {
         questions.value = questionsArray.flat()
         // answers.value -> Proxy array object  ex. 0: Object { content: "Octavia Butler", correct: true}
         answers.value = answersArray.flat()
+        // correctAnswers.value -> Proxy array ex. 0: "Octavia Butler"
+        correctAnswers.value = correctAnswersArray.flat()
 
         setDefaultSelections()
 
@@ -147,6 +165,21 @@ export const useQuizStore = defineStore('quiz', () => {
       // studentAssignmentAnswers.value -> Proxy array ex. 0: "Octavia Butler"
       studentAssignmentAnswers.value = dataArray
       defaults.value = dataArray
+    })
+  }
+
+  const fetchStudentsGrade = async (classId, assignmentId) => {
+    const student = localStorage.getItem('username')
+
+    get(
+      dbRef(database, `classes/${classId}/students/${student}/assignments/${assignmentId}/grade`),
+    ).then((snapshot) => {
+      let data
+      if (snapshot.exists()) {
+        data = snapshot.val()
+      }
+
+      studentAssignmentGrade.value = data
     })
   }
 
@@ -236,9 +269,11 @@ export const useQuizStore = defineStore('quiz', () => {
   const submitForm = (classId, quizId) => {
     const student = localStorage.getItem('username')
 
+    studentAssignmentGrade.value = calculateScore()
+
     set(dbRef(database, `classes/${classId}/students/${student}/assignments/${quizId}`), {
       answers: defaults.value,
-      grade: null,
+      grade: studentAssignmentGrade.value,
     }).catch((error) => {
       // TODO: add error handling
     })
@@ -255,6 +290,7 @@ export const useQuizStore = defineStore('quiz', () => {
     quizContext,
     upcomingAssignments,
     studentAssignmentAnswers,
+    studentAssignmentGrade,
     currentQuestion,
     nextQuestion,
     previousQuestion,
@@ -265,6 +301,7 @@ export const useQuizStore = defineStore('quiz', () => {
     fetchPreviousAssignments,
     fetchQuiz,
     fetchStudentAnswers,
+    fetchStudentsGrade,
     showNextQuestion,
     showPreviousQuestion,
     returnRelatedAnswers,

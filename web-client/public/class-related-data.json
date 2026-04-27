@@ -31,30 +31,15 @@
         "andrewjquick": {
           "assignments": {
             "1": {
-              "answers": {
-                "1": null,
-                "2": null,
-                "3": null,
-                "4": null
-              },
+              "answers": null,
               "grade": null
             },
             "2": {
-              "answers": {
-                "1": null,
-                "2": null,
-                "3": null,
-                "4": null
-              },
+              "answers": null,
               "grade": null
             },
             "3": {
-              "answers": {
-                "1": null,
-                "2": null,
-                "3": null,
-                "4": null
-              },
+              "answers": null,
               "grade": null
             }
           }
@@ -63,29 +48,19 @@
           "assignments": {
             "1": {
               "answers": {
-                "1": 3,
-                "2": 1,
-                "3": 2,
-                "4": 3
+                "1": "Octavia Butler",
+                "2": "Space Opera",
+                "3": "There Will Come Soft Rains",
+                "4": "Roadside Picnic"
               },
-              "grade": 87
+              "grade": 75
             },
             "2": {
-              "answers": {
-                "1": 3,
-                "2": 1,
-                "3": 2,
-                "4": 3
-              },
-              "grade": 87
+              "answers": null,
+              "grade": null
             },
             "3": {
-              "answers": {
-                "1": null,
-                "2": null,
-                "3": null,
-                "4": null
-              },
+              "answers": null,
               "grade": null
             }
           }
@@ -313,18 +288,20 @@
         "jasmineCat": {
           "assignments": {
             "1": {
-              "grade": 0
+              "answers": {
+                "1": "Octavia Butler",
+                "2": "Space Opera",
+                "3": "A Memory Called Empire",
+                "4": "Solaris"
+              },
+              "grade": 25
             },
             "2": {
-              "grade": 100
+              "answers": null,
+              "grade": null
             },
             "3": {
-              "answers": {
-                "1": null,
-                "2": null,
-                "3": null,
-                "4": null
-              },
+              "answers": null,
               "grade": null
             }
           }
@@ -332,18 +309,20 @@
         "vwright": {
           "assignments": {
             "1": {
-              "grade": 87
+              "answers": {
+                "1": "Octavia Butler",
+                "2": "Space Western",
+                "3": "There Will Come Soft Rains",
+                "4": "Roadside Picnic"
+              },
+              "grade": 100
             },
             "2": {
-              "grade": 90
+              "answers": null,
+              "grade": null
             },
             "3": {
-              "answers": {
-                "1": null,
-                "2": null,
-                "3": null,
-                "4": null
-              },
+              "answers": null,
               "grade": null
             }
           }
@@ -570,9 +549,18 @@
         },
         "jasmineCat": {
           "grades": {
-            "1": 87,
-            "2": 90,
-            "3": null
+            "1": {
+              "answers": null,
+              "grade": null
+            },
+            "2": {
+              "answers": null,
+              "grade": null
+            },
+            "3": {
+              "answers": null,
+              "grade": null
+            }
           }
         }
       },
