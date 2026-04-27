@@ -19,11 +19,11 @@ You have been tasked with building a multiple-choice assessment tool that has th
 - [x] Allow the student to select and submit their answer choice for each question
 - [x] Validate response as correct/incorrect, and display feedback<sup>*</sup>
 - [x] Move through all questions in the set<sup>*</sup>
-- [ ] Complete the question set and display a calculated score (one point for each question)<sup>1</sup>
+- [x] Complete the question set and display a calculated score (one point for each question)<sup>1</sup>
 
 <sup>*</sup> I switched these two items so that a student would have the ability to navigate through the quiz with the ability to go back and review their answers before submission, and then upon submission they are able to navigate through their quiz to see how their answers measured up
 
-<sup>1</sup> I still need to set aside time to include scoring
+<sup>1</sup> I still need to set aside time to include scoring Edit: Completed 04/27/2026
 
 ### How it went
 
@@ -37,7 +37,7 @@ You have been tasked with building a multiple-choice assessment tool that has th
 
 I still have a handful of things I would like to do with regards to this example moving forward.
 
-- [ ] Add score calculation
+- [x] Add score calculation
 - [ ] Add tests
 - [ ] Set up testing infrastructure to prevent merges and deployments on failing tests
 - [ ] Deploy the offline version to gh-pages
