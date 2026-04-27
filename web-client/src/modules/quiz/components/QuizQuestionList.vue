@@ -4,7 +4,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref } from 'vue'
 import { useEnvironmentStore } from '@/core/composables/useEnvironmentStore'
 import QuizQuestionItem from './QuizQuestionItem.vue'
 import QuizNavigation from './QuizNavigation.vue'

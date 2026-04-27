@@ -53,7 +53,7 @@ const props = defineProps({
         type: Boolean,
         required: false
     }
-});
+})
 
 // // break id apart, get post q, pre -
 const questionIndex = props.id.match(/(?<=q)\d+(?=-)/g)

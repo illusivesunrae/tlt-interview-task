@@ -124,8 +124,8 @@ const offline = ref(import.meta.env.VITE_demo_mode === 'true')
 
 const store = useFirebase()
 
-const username = ref(localStorage.getItem('username') || 'racmocon');
-const usernameLetter = username.value.charAt(0).toUpperCase();
+const username = ref(localStorage.getItem('username') || 'racmocon')
+const usernameLetter = username.value.charAt(0).toUpperCase()
 </script>
 
 <style lang="scss" scoped>

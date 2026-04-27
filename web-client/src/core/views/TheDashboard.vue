@@ -20,7 +20,7 @@ import { useEnvironmentStore } from '../composables/useEnvironmentStore'
 
 import BaseCard from '../components/BaseCard.vue'
 
-const store = useEnvironmentStore();
+const store = useEnvironmentStore()
 
 watch(() => store.activeClasses, (newVal, _) => {
     newVal.forEach((item) => {

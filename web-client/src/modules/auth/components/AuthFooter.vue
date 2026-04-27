@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-const footerYear = new Date().getFullYear();
+const footerYear = new Date().getFullYear()
 </script>
 
 <style lang="scss" scoped>
