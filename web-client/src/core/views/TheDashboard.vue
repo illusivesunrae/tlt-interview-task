@@ -5,11 +5,9 @@
                 <h1 class="rvt-m-top-xs">IU Student Dashboard</h1>
                 <div class="rvt-m-top-xxl rvt-p-top-xxl rvt-border-top">
                     <base-card raised warning type="upcoming" title="Upcoming Assignments" badge="Due this week"
-                        v-if="offline.upcomingAssignments || quizStore.upcomingAssignments"
-                        :assignments="offline.upcomingAssignments || quizStore.upcomingAssignments"></base-card>
+                        v-if="store.upcomingAssignments" :assignments="store.upcomingAssignments"></base-card>
                     <base-card raised success type="previous" title="Previous Assignments"
-                        v-if="offline.previousAssignments || quizStore.previousAssignments"
-                        :assignments="offline.previousAssignments || quizStore.previousAssignments"></base-card>
+                        v-if="store.previousAssignments" :assignments="store.previousAssignments"></base-card>
                 </div>
             </div>
         </div>
@@ -17,50 +15,22 @@
 </template>
 
 <script setup>
-import { onMounted, onUnmounted, watch } from 'vue';
-import { useQuizStore } from '../../modules/quiz/store/quizStore';
-import { useOfflineStore } from '@/modules/offline/store/offlineStore';
+import { onMounted, watch } from 'vue'
+import { useEnvironmentStore } from '../composables/useEnvironmentStore'
 
-import BaseCard from '../components/BaseCard.vue';
+import BaseCard from '../components/BaseCard.vue'
 
-const quizStore = useQuizStore();
-const offline = useOfflineStore();
+const store = useEnvironmentStore();
 
-watch(() => quizStore.activeClasses, (newVal, _) => {
-    if (import.meta.env.VITE_demo_mode === false) {
-        newVal.forEach((item) => {
-            quizStore.fetchUpcomingAssignments(item);
-            quizStore.fetchPreviousAssignments(item);
-        })
-    }
-})
-
-watch(() => offline.activeClasses, (newVal, _) => {
+watch(() => store.activeClasses, (newVal, _) => {
     newVal.forEach((item) => {
-        offline.fetchUpcomingAssignments(item);
-        offline.fetchPreviousAssignments(item);
+        store.fetchUpcomingAssignments(item)
+        store.fetchPreviousAssignments(item)
     })
 })
 
-watch(() => offline.online, (newVal, _) => {
-    if (newVal === false) {
-        offline.fetchActiveClasses();
-    }
-})
-
 onMounted(() => {
-    if (import.meta.env.VITE_demo_mode === false) {
-        quizStore.fetchActiveClasses();
-    } else {
-        offline.fetchActiveClasses();
-    }
-    window.addEventListener('online', offline.updateOnlineStatus);
-    window.addEventListener('offline', offline.updateOnlineStatus);
-})
-
-onUnmounted(() => {
-    window.removeEventListener('online', offline.updateOnlineStatus);
-    window.removeEventListener('offline', offline.updateOnlineStatus);
+    store.fetchActiveClasses()
 })
 </script>
 
