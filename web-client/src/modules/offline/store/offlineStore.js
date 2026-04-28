@@ -6,6 +6,7 @@ export const useOfflineStore = defineStore('offline', () => {
   const answers = ref([])
   const assignmentCompleted = ref()
   const correctAnswers = ref([])
+  const currentTerm = ref(4268)
   const defaults = ref([])
   const formKey = ref(0)
   const offlineMode = ref(import.meta.env.VITE_demo_mode === 'true')
@@ -57,7 +58,7 @@ export const useOfflineStore = defineStore('offline', () => {
   }
 
   const fetchActiveClasses = async () => {
-    fetch('/class-related-data.json')
+    fetch('/data-restructured.json')
       .then((response) => {
         return response.json()
       })
@@ -65,12 +66,15 @@ export const useOfflineStore = defineStore('offline', () => {
         const student = localStorage.getItem('username')
         let dataArray = []
 
-        let contextObject = data.students[student].activeClasses
+        let contextObject = data.students[student].classes
 
-        for (const [key] of Object.entries(contextObject)) {
-          dataArray.push(key)
+        for (const [key, value] of Object.entries(contextObject)) {
+          if (value.term === currentTerm.value) {
+            dataArray.push(key)
+          }
         }
         activeClasses.value = dataArray
+        console.log(activeClasses.value)
       })
       .catch((error) => {
         // TODO: add error handling
@@ -358,6 +362,7 @@ export const useOfflineStore = defineStore('offline', () => {
     upcomingAssignments,
     checkIfAssignmentCompleted,
     currentQuestion,
+    currentTerm,
     nextQuestion,
     previousQuestion,
     fetchActiveClasses,
