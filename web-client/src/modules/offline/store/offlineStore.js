@@ -31,6 +31,7 @@ export const useOfflineStore = defineStore('offline', () => {
     const studentAnswers = new Set(defaults.value)
 
     const incorrectAnswers = studentAnswers.intersection(testAnswers)
+
     return +((incorrectAnswers.size / testAnswers.size) * 100).toFixed(2)
   }
 
