@@ -13,7 +13,7 @@
                                 <h1 class="rvt-p-top-sm"
                                     :class="store.studentAssignmentGrade ? 'rvt-m-bottom-sm' : 'rvt-m-bottom-lg'">{{
                                         store.quizContext.name }}</h1>
-                                <h2 class="rvt-m-bottom-lg" v-if="store.studentAssignmentGrade">Results: {{
+                                <h2 class="rvt-m-bottom-lg" v-if="store.studentAssignmentGrade !== null">Results: {{
                                     store.studentAssignmentGrade }}%</h2>
                                 <quiz-question-list :key="store.formKey"></quiz-question-list>
                             </fieldset>
@@ -29,7 +29,7 @@
                                     <h1 class="rvt-p-top-sm"
                                         :class="store.studentAssignmentGrade ? 'rvt-m-bottom-sm' : 'rvt-m-bottom-lg'">
                                         {{ store.quizContext.name }}</h1>
-                                    <h2 class="rvt-m-bottom-lg" v-if="store.studentAssignmentGrade">Results: {{
+                                    <h2 class="rvt-m-bottom-lg" v-if="store.studentAssignmentGrade !== null">Results: {{
                                         store.studentAssignmentGrade }}%</h2>
                                     <quiz-question-list></quiz-question-list>
                                 </fieldset>
