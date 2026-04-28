@@ -1,0 +1,2871 @@
+{
+  "courses": {
+    "ARTH-A412": {
+      "title": "THE ART AND ARCHAEOLOGY OF THE AEGEAN",
+      "activeClasses": [23148, 23149, 23004, 23005]
+    },
+    "ARTH-A490": {
+      "title": "TOPICS IN ART HISTORY",
+      "activeClasses": [35240, 35241]
+    },
+    "ARTH-A501": {
+      "title": "TOPICS IN ANCIENT ART",
+      "activeClasses": [35240, 35241, 23148, 23149, 23004, 23005]
+    },
+    "CLAS-C412": {
+      "title": "THE ART AND ARCHAEOLOGY OF THE AEGEAN",
+      "activeClasses": [23004, 23005, 23148, 23149]
+    },
+    "CLAS-C421": {
+      "title": "TOPOGRAPHY AND MONUMENTS OF ANCIENT ROME",
+      "activeClasses": [35213, 35215]
+    },
+    "CLAS-C503": {
+      "title": "THE ANCIENT CITY",
+      "activeClasses": [35213, 35215]
+    },
+    "CLAS-C512": {
+      "title": "ART AND ARCHAEOLOGY OF THE AEGEAN",
+      "activeClasses": [23004, 23005, 23148, 23149]
+    },
+    "ENG-L460": {
+      "title": "SEMINAR: LITERARY FORM, MODE, AND THEME",
+      "activeClasses": [23693]
+    }
+  },
+    "classes": {
+        "23693": {
+            "courseId": "ENG-L460",
+            "topic": "19th Century Science Fiction",
+            "term": 4268,
+            "active": true,
+            "instructors": ["mormorga"],
+            "students": ["racmocon", "jasmineCat", "vwright"],
+            "assignments": {
+                "0": {
+                    "assignmentId": 0,
+                    "creatorId": "mormorga",
+                    "type": "quiz",
+                    "name": "Quiz 1",
+                    "dueDate": "2026-03-26T02:00:00Z",
+                    "timeLimit": 1200000,
+                    "shuffleQuestions": false,
+                    "shuffleAnswers": false,
+                    "weightDistribution": {
+                        "type": "even"
+                    },
+                    "questions": {
+                        "0": {
+                            "questionId": 0,
+                            "type": "multipleChoice",
+                            "text": "Who wrote the novel Dawn?",
+                            "answerKeyId": 0
+                        },
+                        "1": {
+                            "questionId": 1,
+                            "type": "multipleChoice",
+                            "text": "What is the sub-genre of Shambleau?",
+                            "answerKeyId": 1
+                        },
+                        "2": {
+                            "questionId": 2,
+                            "type": "multipleChoice",
+                            "text": "Which of these is a short story?",
+                            "answerKeyId": 2
+                        },
+                        "3": {
+                            "questionId": 3,
+                            "type": "multipleChoice",
+                            "text": "Which of the following was written by the Strugatskii brothers?",
+                            "answerKeyId": 3
+                        }
+                    },
+                    "answerKeys": {
+                        "0": {
+                            "answerKeyId": 0,
+                            "answers": {
+                                "0": {
+                                    "content": "Octavia Butler",
+                                    "correct": true
+                                },
+                                "1": {
+                                    "content": "Samuel R. Delany",
+                                    "correct": false
+                                },
+                                "2": {
+                                    "content": "George Orwell",
+                                    "correct": false
+                                },
+                                "3": {
+                                    "content": "C.L. Moore",
+                                    "correct": false
+                                }
+                            },
+                            "questionId": 0
+                        },
+                        "1": {
+                            "answerKeyId": 1,
+                            "answers": {
+                                "0": {
+                                    "content": "Space Western",
+                                    "correct": true
+                                },
+                                "1": {
+                                    "content": "Space Opera",
+                                    "correct": false
+                                },
+                                "2": {
+                                    "content": "Cyberpunk",
+                                    "correct": false
+                                },
+                                "3": {
+                                    "content": "Hard sci-fi",
+                                    "correct": false
+                                }
+                            },
+                            "questionId": 1
+                        },
+                        "2": {
+                            "answerKeyId": 2,
+                            "answers": {
+                                "0": {
+                                "content": "Journey to the Center of the Earth",
+                                "correct": false
+                                },
+                                "1": {
+                                "content": "A Memory Called Empire",
+                                "correct": false
+                                },
+                                "2": {
+                                "content": "There Will Come Soft Rains",
+                                "correct": true
+                                },
+                                "3": {
+                                "content": "Do Androids Dream of Electric Sheep?",
+                                "correct": false
+                                }
+                            },
+                            "questionId": 2
+                        },
+                        "3": {
+                            "answerKeyId": 3,
+                            "answers": {
+                                "0": {
+                                    "content": "Story of Your Life",
+                                    "correct": false
+                                },
+                                "1": {
+                                    "content": "Roadside Picnic",
+                                    "correct": true
+                                },
+                                "2": {
+                                    "content": "The Left Hand of Darkness",
+                                    "correct": false
+                                },
+                                "3": {
+                                    "content": "Solaris",
+                                    "correct": false
+                                }
+                            },
+                            "questionId": 3
+                        }
+                    }
+                }, 
+                "1": {
+                    "assignmentId": 4,
+                    "creatorId": "mormorga",
+                    "type": "artifact",
+                    "name": "Essay 1",
+                    "dueDate": "2026-05-11T03:59:59Z",
+                    "timeLimit": null,
+                    "shuffleQuestions": false,
+                    "shuffleAnswers": false,
+                    "weightDistribution": {
+                        "type": "even"
+                    },
+                    "questions": null,
+                    "answerKeys": null
+                },
+                "2": {
+                    "assignmentId": 5,
+                    "creatorId": "mormorga",
+                    "type": "quiz",
+                    "name": "Quiz 2",
+                    "dueDate": "2026-05-25T03:59:59Z",
+                    "timeLimit": 1200000,
+                    "shuffleQuestions": false,
+                    "shuffleAnswers": false,
+                    "weightDistribution": {
+                        "type": "even"
+                    },
+                    "questions": {
+                        "0": {
+                            "questionId": 12,
+                            "type": "multipleChoice",
+                            "text": "Who wrote Northwest of Earth?",
+                            "answerKeyId": 12
+                        },
+                        "1": {
+                            "questionId": 13,
+                            "type": "multipleChoice",
+                            "text": "What is the first novel in the Hainish Cycle?",
+                            "answerKeyId": 13
+                        },
+                        "2": {
+                            "questionId": 14,
+                            "type": "multipleChoice",
+                            "text": "Which book originated the term cyberspace?",
+                            "answerKeyId": 14
+                        },
+                        "3": {
+                            "questionId": 15,
+                            "type": "multipleChoice",
+                            "text": "What series by Octavia Butler has underlying themes related to consent, colonialism, and gender identity?",
+                            "answerKeyId": 15
+                        }
+                    },
+                    "answerKeys": {
+                        "0": {
+                            "answerKeyId": 12,
+                            "answers": {
+                                "0": {
+                                    "content": "Octavia Butler",
+                                    "correct": false
+                                },
+                                "1": {
+                                    "content": "Samuel R. Delany",
+                                    "correct": false
+                                },
+                                "2": {
+                                    "content": "George Orwell",
+                                    "correct": false
+                                },
+                                "3": {
+                                    "content": "C.L. Moore",
+                                    "correct": true
+                                }
+                            },
+                            "questionId": 12
+                        },
+                        "1": {
+                            "answerKeyId": 13,
+                            "answers": {
+                                "0": {
+                                    "content": "Rocannon's World",
+                                    "correct": true
+                                },
+                                "1": {
+                                    "content": "The Left Hand of Darkness",
+                                    "correct": false
+                                },
+                                "2": {
+                                    "content": "The Dispossessed",
+                                    "correct": false
+                                },
+                                "3": {
+                                    "content": "A Wizard of Earthsea",
+                                    "correct": false
+                                }
+                            },
+                            "questionId": 13
+                        },
+                        "2": {
+                            "answerKeyId": 14,
+                            "answers": {
+                                "0": {
+                                    "content": "Snowcrash",
+                                    "correct": false
+                                },
+                                "1": {
+                                    "content": "Neuromancer",
+                                    "correct": true
+                                },
+                                "2": {
+                                    "content": "Do Androids Dream of Electric Sheep?",
+                                    "correct": false
+                                },
+                                "3": {
+                                    "content": "Altered Carbon",
+                                    "correct": false
+                                }
+                            },
+                            "questionId": 14
+                        },
+                        "3": {
+                            "answerKeyId": 15,
+                            "answers": {
+                                "0": {
+                                    "content": "The Sprawl Trilogy",
+                                    "correct": false
+                                },
+                                "1": {
+                                    "content": "The Broken Earth Trilogy",
+                                    "correct": false
+                                },
+                                "2": {
+                                    "content": "The Xenogenesis Trilogy",
+                                    "correct": true
+                                },
+                                "3": {
+                                    "content": "The Hyperion Cantos",
+                                    "correct": false
+                                }
+                            },
+                            "questionId": 15
+                        }
+                    }
+                }
+            }
+        },
+        "35213": {
+            "courseId": "CLAS-C421",
+            "topic": "TOPOGRAPHY AND MONUMENTS OF ANCIENT ROME",
+            "term": 4268,
+            "active": true,
+            "instructors": ["epoppen"],
+            "students": ["vwright"],
+            "assignments": {
+                "0": {
+                    "assignmentId": 1,
+                    "creatorId": "epoppen",
+                    "type": "quiz",
+                    "name": "Quiz #1",
+                    "dueDate": "2026-03-28T02:00:00Z",
+                    "timeLimit": 1200000,
+                    "shuffleQuestions": false,
+                    "shuffleAnswers": true,
+                    "weightDistribution": {
+                        "type": "even"
+                    },
+                    "questions": {
+                        "0": {
+                            "questionId": 4,
+                            "type": "multipleChoice",
+                            "text": "Which of these is not a field of study within the study of built environment of ancient Rome?",
+                            "answerKeyId": 4
+                        },
+                        "1": {
+                            "questionId": 5,
+                            "type": "multipleChoice",
+                            "text": "When did topography of Rome as a field of study begin?",
+                            "answerKeyId": 5
+                        },
+                        "2": {
+                            "questionId": 6,
+                            "type": "multipleChoice",
+                            "text": "Who wasn't influenced by Falvio Biondo's methodology and use of textual resources?",
+                            "answerKeyId": 6
+                        },
+                        "3": {
+                            "questionId": 7,
+                            "type": "multipleChoice",
+                            "text": "Which of these is considered the quintessential English-language treatise on ancient Roman topography?",
+                            "answerKeyId": 7
+                        }
+                    },
+                    "answerKeys": {
+                        "0": {
+                            "answerKeyId": 4,
+                            "answers": {
+                                "0": {
+                                    "content": "Archaeology",
+                                    "correct": false
+                                },
+                                "1": {
+                                    "content": "Topology",
+                                    "correct": true
+                                },
+                                "2": {
+                                    "content": "Epigraphy",
+                                    "correct": false
+                                },
+                                "3": {
+                                    "content": "Philology",
+                                    "correct": false
+                                }
+                            },
+                            "questionId": 4
+                        },
+                        "1": {
+                            "answerKeyId": 5,
+                            "answers": {
+                                "0": {
+                                    "content": "The Italian Renaissance",
+                                    "correct": true
+                                },
+                                "1": {
+                                    "content": "As a response to the Napoleonic Wars",
+                                    "correct": false
+                                },
+                                "2": {
+                                    "content": "The Liberal period",
+                                    "correct": false
+                                },
+                                "3": {
+                                    "content": "The Republican era",
+                                    "correct": false
+                                }
+                            },
+                            "questionId": 5
+                        },
+                        "2": {
+                            "answerKeyId": 6,
+                            "answers": {
+                                "0": {
+                                    "content": "Pomponius Leto",
+                                    "correct": false
+                                    },
+                                "1": {
+                                    "content": "Bernardo Rucellai",
+                                    "correct": false
+                                },
+                                "2": {
+                                    "content": "Poggio Bracciolini",
+                                    "correct": true
+                                },
+                                "3": {
+                                    "content": "Andrea Fulvio",
+                                    "correct": false
+                                }
+                            },
+                            "questionId": 6
+                        },
+                        "3": {
+                            "answerKeyId": 7,
+                            "answers": {
+                                "0": {
+                                    "content": "Information about the regions of the city",
+                                    "correct": false
+                                },
+                                "1": {
+                                    "content": "A Topographical Dictionary of Ancient Rome",
+                                    "correct": true
+                                },
+                                "2": {
+                                    "content": "Antiquities of the city",
+                                    "correct": false
+                                },
+                                "3": {
+                                    "content": "On the city of Rome",
+                                    "correct": false
+                                }
+                            },
+                            "questionId": 7
+                        }
+                    }
+
+                },
+                "1": {
+                    "assignmentId": 2,
+                    "creatorId": "epoppen",
+                    "type": "forum",
+                    "name": "Forum Post 1",
+                    "grading": "manual",
+                    "dueDate": "2026-04-09T02:00:00Z",
+                    "timeLimit": null,
+                    "shuffleQuestions": false,
+                    "shuffleAnswers": false,
+                    "weightDistribution": {
+                            "type": "even"
+                        },
+                    "questions": null,
+                    "answerKeys": null
+                },
+                "2": {
+                    "assignmentId": 3,
+                    "creatorId": "epoppen",
+                    "type": "exam",
+                    "name": "Exam 1",
+                    "dueDate": "2026-05-30T02:00:00Z",
+                    "timeLimit": 3600000,
+                    "shuffleQuestions": true,
+                    "shuffleAnswers": true,
+                    "weightDistribution": {
+                        "type": "custom",
+                        "multipleChoice": 80,
+                        "shortEssay": 20
+                    },
+                    "questions": {
+                        "0": {
+                            "questionId": 4,
+                            "type": "multipleChoice",
+                            "text": "Which of these is not a field of study within the study of built environment of ancient Rome?",
+                            "answerKeyId": 4
+                        },
+                        "1": {
+                            "questionId": 5,
+                            "type": "multipleChoice",
+                            "text": "When did topography of Rome as a field of study begin?",
+                            "answerKeyId": 5
+                        },
+                        "2": {
+                            "questionId": 6,
+                            "type": "multipleChoice",
+                            "text": "Who wasn't influenced by Falvio Biondo's methodology and use of textual resources?",
+                            "answerKeyId": 6
+                        },
+                        "3": {
+                            "questionId": 7,
+                            "type": "multipleChoice",
+                            "text": "Which of these is considered the quintessential English-language treatise on ancient Roman topography?",
+                            "answerKeyId": 7
+                        },
+                        "4": {
+                            "questionId": 8,
+                            "type": "multipleChoice",
+                            "text": "Where were the original settlements that combined to form Rome?",
+                            "answerKeyId": 8
+                        },
+                        "5": {
+                            "questionId": 9,
+                            "type": "multipleChoice",
+                            "text": "Which of these is not one of the Seven Hills of Rome?",
+                            "answerKeyId": 9
+                        },
+                        "6": {
+                            "questionId": 10,
+                            "type": "multipleChoice",
+                            "text": "Select the oldest monument below.",
+                            "answerKeyId": 10
+                        },
+                        "7": {
+                            "questionId": 11,
+                            "type": "multipleChoice",
+                            "text": "Who was emperor when construction on the Colosseum began?",
+                            "answerKeyId": 11
+                        },
+                        "8": {
+                            "questionId": 16,
+                            "type": "multipleChoice",
+                            "text": "Which term describes a covered entrance to a building typically featuring a roof supported by columns and topped with a pediment?",
+                            "answerKeyId": 16
+                        },
+                        "9": {
+                            "questionId": 17,
+                            "type": "multipleChoice",
+                            "text": "What is the river that was directly east of Rome?",
+                            "answerKeyId": 17
+                        },
+                        "10": {
+                            "questionId": 18,
+                            "type": "shortEssay",
+                            "maxLength": 4800,
+                            "text": "How did the Tiber and it's location play a key role in the development of Rome?",
+                            "answerKeyId": null
+                        }
+                    },
+                    "answerKeys": {
+                        "0": {
+                            "answerKeyId": 4,
+                            "answers": {
+                                "0": {
+                                    "content": "Archaeology",
+                                    "correct": false
+                                },
+                                "1": {
+                                    "content": "Topology",
+                                    "correct": true
+                                },
+                                "2": {
+                                    "content": "Epigraphy",
+                                    "correct": false
+                                },
+                                "3": {
+                                    "content": "Philology",
+                                    "correct": false
+                                }
+                            },
+                            "questionId": 4
+                        },
+                        "1": {
+                            "answerKeyId": 5,
+                            "answers": {
+                                "0": {
+                                    "content": "The Italian Renaissance",
+                                    "correct": true
+                                },
+                                "1": {
+                                    "content": "As a response to the Napoleonic Wars",
+                                    "correct": false
+                                },
+                                "2": {
+                                    "content": "The Liberal period",
+                                    "correct": false
+                                },
+                                "3": {
+                                    "content": "The Republican era",
+                                    "correct": false
+                                }
+                            },
+                            "questionId": 5
+                        },
+                        "2": {
+                            "answerKeyId": 6,
+                            "answers": {
+                                    "0": {
+                                        "content": "Pomponius Leto",
+                                        "correct": false
+                                        },
+                                    "1": {
+                                        "content": "Bernardo Rucellai",
+                                        "correct": false
+                                    },
+                                    "2": {
+                                        "content": "Poggio Bracciolini",
+                                        "correct": true
+                                    },
+                                    "3": {
+                                        "content": "Andrea Fulvio",
+                                        "correct": false
+                                    }
+                            },
+                            "questionId": 6
+                        },
+                        "3": {
+                            "answerKeyId": 7,
+                            "answers": {
+                                "0": {
+                                    "content": "Information about the regions of the city",
+                                    "correct": false
+                                },
+                                "1": {
+                                    "content": "A Topographical Dictionary of Ancient Rome",
+                                    "correct": true
+                                },
+                                "2": {
+                                    "content": "Antiquities of the city",
+                                    "correct": false
+                                },
+                                "3": {
+                                    "content": "On the city of Rome",
+                                    "correct": false
+                                }
+                            },
+                            "questionId": 7
+                        },
+                        "4": {
+                            "answerKeyId": 8,
+                            "answers": {
+                                "0": {
+                                    "content": "The Seven Hills",
+                                    "correct": true
+                                },
+                                "1": {
+                                    "content": "The Pantheon",
+                                    "correct": false
+                                },
+                                "2": {
+                                    "content": "The Aurellian Walls",
+                                    "correct": false
+                                },
+                                "3": {
+                                    "content": "The Castra Praetoria",
+                                    "correct": false
+                                }
+                            },
+                            "questionId": 8
+                        },
+                        "5": {
+                            "answerKeyId": 9,
+                            "answers": {
+                                "0": {
+                                    "content": "Esquiline Hill",
+                                    "correct": false
+                                },
+                                "1": {
+                                    "content": "Vatican Hill",
+                                    "correct": true
+                                },
+                                "2": {
+                                    "content": "Caelian Hill",
+                                    "correct": false
+                                },
+                                "3": {
+                                    "content": "Capitoline Hill",
+                                    "correct": false
+                                }
+                            },
+                            "questionId": 9
+                        },
+                        "6": {
+                            "answerKeyId": 10,
+                            "answers": {
+                                "0": {
+                                    "content": "The Colosseum",
+                                    "correct": false
+                                },
+                                "1": {
+                                    "content": "The Mamertine Prison",
+                                    "correct": true
+                                },
+                                "2": {
+                                    "content": "The Forum of Nerva",
+                                    "correct": false
+                                },
+                                "3": {
+                                    "content": "The Castra Praetoria",
+                                    "correct": false
+                                }
+                            },
+                            "questionId": 10
+                        },
+                        "7": {
+                            "answerKeyId": 11,
+                            "answers": {
+                                "0": {
+                                    "content": "Nero",
+                                    "correct": false
+                                },
+                                "1": {
+                                    "content": "Titus",
+                                    "correct": false
+                                },
+                                "2": {
+                                    "content": "Vespasian",
+                                    "correct": true
+                                },
+                                "3": {
+                                    "content": "Flavius",
+                                    "correct": false
+                                }
+                            },
+                            "questionId": 11
+                        },
+                        "8": {
+                            "answerKeyId": 16,
+                            "answers": {
+                                "0": {
+                                    "content": "portico",
+                                    "correct": true
+                                },
+                                "1": {
+                                    "content": "oculus",
+                                    "correct": false
+                                },
+                                "2": {
+                                    "content": "barrel vault",
+                                    "correct": false
+                                },
+                                "3": {
+                                    "content": "cella",
+                                    "correct": false
+                                }
+                            },
+                            "questionId": 16
+                        },
+                        "9": {
+                            "answerKeyId": 17,
+                            "answers": {
+                                "0": {
+                                    "content": "The Adige",
+                                    "correct": false
+                                },
+                                "1": {
+                                    "content": "The Po",
+                                    "correct": false
+                                },
+                                "2": {
+                                    "content": "The Aniene",
+                                    "correct": false
+                                },
+                                "3": {
+                                    "content": "The Tiber",
+                                    "correct": true
+                                }
+                            },
+                            "questionId": 17
+                        }
+                    }
+
+                }
+            }
+        },
+        "35240": {
+            "courseId": "ARTH-A490",
+            "topic": "TOPOGRAPHY AND MONUMENTS OF ANCIENT ROME",
+            "term": 4268,
+            "active": true,
+            "instructors": ["epoppen"],
+            "students": ["racmocon", "andrewjquick", "bradcat"],
+            "assignments": {
+                "0": {
+                    "assignmentId": 1,
+                    "creatorId": "epoppen",
+                    "type": "quiz",
+                    "name": "Quiz #1",
+                    "dueDate": "2026-03-28T02:00:00Z",
+                    "timeLimit": 1200000,
+                    "shuffleQuestions": false,
+                    "shuffleAnswers": true,
+                    "weightDistribution": {
+                        "type": "even"
+                    },
+                    "questions": {
+                        "0": {
+                            "questionId": 4,
+                            "type": "multipleChoice",
+                            "text": "Which of these is not a field of study within the study of built environment of ancient Rome?",
+                            "answerKeyId": 4
+                        },
+                        "1": {
+                            "questionId": 5,
+                            "type": "multipleChoice",
+                            "text": "When did topography of Rome as a field of study begin?",
+                            "answerKeyId": 5
+                        },
+                        "2": {
+                            "questionId": 6,
+                            "type": "multipleChoice",
+                            "text": "Who wasn't influenced by Falvio Biondo's methodology and use of textual resources?",
+                            "answerKeyId": 6
+                        },
+                        "3": {
+                            "questionId": 7,
+                            "type": "multipleChoice",
+                            "text": "Which of these is considered the quintessential English-language treatise on ancient Roman topography?",
+                            "answerKeyId": 7
+                        }
+                    },
+                    "answerKeys": {
+                        "0": {
+                            "answerKeyId": 4,
+                            "answers": {
+                                "0": {
+                                    "content": "Archaeology",
+                                    "correct": false
+                                },
+                                "1": {
+                                    "content": "Topology",
+                                    "correct": true
+                                },
+                                "2": {
+                                    "content": "Epigraphy",
+                                    "correct": false
+                                },
+                                "3": {
+                                    "content": "Philology",
+                                    "correct": false
+                                }
+                            },
+                            "questionId": 4
+                        },
+                        "1": {
+                            "answerKeyId": 5,
+                            "answers": {
+                                "0": {
+                                    "content": "The Italian Renaissance",
+                                    "correct": true
+                                },
+                                "1": {
+                                    "content": "As a response to the Napoleonic Wars",
+                                    "correct": false
+                                },
+                                "2": {
+                                    "content": "The Liberal period",
+                                    "correct": false
+                                },
+                                "3": {
+                                    "content": "The Republican era",
+                                    "correct": false
+                                }
+                            },
+                            "questionId": 5
+                        },
+                        "2": {
+                            "answerKeyId": 6,
+                            "answers": {
+                                "0": {
+                                    "content": "Pomponius Leto",
+                                    "correct": false
+                                    },
+                                "1": {
+                                    "content": "Bernardo Rucellai",
+                                    "correct": false
+                                },
+                                "2": {
+                                    "content": "Poggio Bracciolini",
+                                    "correct": true
+                                },
+                                "3": {
+                                    "content": "Andrea Fulvio",
+                                    "correct": false
+                                }
+                            },
+                            "questionId": 6
+                        },
+                        "3": {
+                            "answerKeyId": 7,
+                            "answers": {
+                                "0": {
+                                    "content": "Information about the regions of the city",
+                                    "correct": false
+                                },
+                                "1": {
+                                    "content": "A Topographical Dictionary of Ancient Rome",
+                                    "correct": true
+                                },
+                                "2": {
+                                    "content": "Antiquities of the city",
+                                    "correct": false
+                                },
+                                "3": {
+                                    "content": "On the city of Rome",
+                                    "correct": false
+                                }
+                            },
+                            "questionId": 7
+                        }
+                    }
+
+                },
+                "1": {
+                    "assignmentId": 2,
+                    "creatorId": "epoppen",
+                    "type": "forum",
+                    "name": "Forum Post 1",
+                    "grading": "manual",
+                    "dueDate": "2026-04-09T02:00:00Z",
+                    "timeLimit": null,
+                    "shuffleQuestions": false,
+                    "shuffleAnswers": false,
+                    "weightDistribution": {
+                            "type": "even"
+                        },
+                    "questions": null,
+                    "answerKeys": null
+                },
+                "2": {
+                    "assignmentId": 3,
+                    "creatorId": "epoppen",
+                    "type": "exam",
+                    "name": "Exam 1",
+                    "dueDate": "2026-05-30T02:00:00Z",
+                    "timeLimit": 3600000,
+                    "shuffleQuestions": true,
+                    "shuffleAnswers": true,
+                    "weightDistribution": {
+                        "type": "custom",
+                        "multipleChoice": 80,
+                        "shortEssay": 20
+                    },
+                    "questions": {
+                        "0": {
+                            "questionId": 4,
+                            "type": "multipleChoice",
+                            "text": "Which of these is not a field of study within the study of built environment of ancient Rome?",
+                            "answerKeyId": 4
+                        },
+                        "1": {
+                            "questionId": 5,
+                            "type": "multipleChoice",
+                            "text": "When did topography of Rome as a field of study begin?",
+                            "answerKeyId": 5
+                        },
+                        "2": {
+                            "questionId": 6,
+                            "type": "multipleChoice",
+                            "text": "Who wasn't influenced by Falvio Biondo's methodology and use of textual resources?",
+                            "answerKeyId": 6
+                        },
+                        "3": {
+                            "questionId": 7,
+                            "type": "multipleChoice",
+                            "text": "Which of these is considered the quintessential English-language treatise on ancient Roman topography?",
+                            "answerKeyId": 7
+                        },
+                        "4": {
+                            "questionId": 8,
+                            "type": "multipleChoice",
+                            "text": "Where were the original settlements that combined to form Rome?",
+                            "answerKeyId": 8
+                        },
+                        "5": {
+                            "questionId": 9,
+                            "type": "multipleChoice",
+                            "text": "Which of these is not one of the Seven Hills of Rome?",
+                            "answerKeyId": 9
+                        },
+                        "6": {
+                            "questionId": 10,
+                            "type": "multipleChoice",
+                            "text": "Select the oldest monument below.",
+                            "answerKeyId": 10
+                        },
+                        "7": {
+                            "questionId": 11,
+                            "type": "multipleChoice",
+                            "text": "Who was emperor when construction on the Colosseum began?",
+                            "answerKeyId": 11
+                        },
+                        "8": {
+                            "questionId": 16,
+                            "type": "multipleChoice",
+                            "text": "Which term describes a covered entrance to a building typically featuring a roof supported by columns and topped with a pediment?",
+                            "answerKeyId": 16
+                        },
+                        "9": {
+                            "questionId": 17,
+                            "type": "multipleChoice",
+                            "text": "What is the river that was directly east of Rome?",
+                            "answerKeyId": 17
+                        },
+                        "10": {
+                            "questionId": 18,
+                            "type": "shortEssay",
+                            "maxLength": 4800,
+                            "text": "How did the Tiber and it's location play a key role in the development of Rome?",
+                            "answerKeyId": null
+                        }
+                    },
+                    "answerKeys": {
+                        "0": {
+                            "answerKeyId": 4,
+                            "answers": {
+                                "0": {
+                                    "content": "Archaeology",
+                                    "correct": false
+                                },
+                                "1": {
+                                    "content": "Topology",
+                                    "correct": true
+                                },
+                                "2": {
+                                    "content": "Epigraphy",
+                                    "correct": false
+                                },
+                                "3": {
+                                    "content": "Philology",
+                                    "correct": false
+                                }
+                            },
+                            "questionId": 4
+                        },
+                        "1": {
+                            "answerKeyId": 5,
+                            "answers": {
+                                "0": {
+                                    "content": "The Italian Renaissance",
+                                    "correct": true
+                                },
+                                "1": {
+                                    "content": "As a response to the Napoleonic Wars",
+                                    "correct": false
+                                },
+                                "2": {
+                                    "content": "The Liberal period",
+                                    "correct": false
+                                },
+                                "3": {
+                                    "content": "The Republican era",
+                                    "correct": false
+                                }
+                            },
+                            "questionId": 5
+                        },
+                        "2": {
+                            "answerKeyId": 6,
+                            "answers": {
+                                    "0": {
+                                        "content": "Pomponius Leto",
+                                        "correct": false
+                                        },
+                                    "1": {
+                                        "content": "Bernardo Rucellai",
+                                        "correct": false
+                                    },
+                                    "2": {
+                                        "content": "Poggio Bracciolini",
+                                        "correct": true
+                                    },
+                                    "3": {
+                                        "content": "Andrea Fulvio",
+                                        "correct": false
+                                    }
+                            },
+                            "questionId": 6
+                        },
+                        "3": {
+                            "answerKeyId": 7,
+                            "answers": {
+                                "0": {
+                                    "content": "Information about the regions of the city",
+                                    "correct": false
+                                },
+                                "1": {
+                                    "content": "A Topographical Dictionary of Ancient Rome",
+                                    "correct": true
+                                },
+                                "2": {
+                                    "content": "Antiquities of the city",
+                                    "correct": false
+                                },
+                                "3": {
+                                    "content": "On the city of Rome",
+                                    "correct": false
+                                }
+                            },
+                            "questionId": 7
+                        },
+                        "4": {
+                            "answerKeyId": 8,
+                            "answers": {
+                                "0": {
+                                    "content": "The Seven Hills",
+                                    "correct": true
+                                },
+                                "1": {
+                                    "content": "The Pantheon",
+                                    "correct": false
+                                },
+                                "2": {
+                                    "content": "The Aurellian Walls",
+                                    "correct": false
+                                },
+                                "3": {
+                                    "content": "The Castra Praetoria",
+                                    "correct": false
+                                }
+                            },
+                            "questionId": 8
+                        },
+                        "5": {
+                            "answerKeyId": 9,
+                            "answers": {
+                                "0": {
+                                    "content": "Esquiline Hill",
+                                    "correct": false
+                                },
+                                "1": {
+                                    "content": "Vatican Hill",
+                                    "correct": true
+                                },
+                                "2": {
+                                    "content": "Caelian Hill",
+                                    "correct": false
+                                },
+                                "3": {
+                                    "content": "Capitoline Hill",
+                                    "correct": false
+                                }
+                            },
+                            "questionId": 9
+                        },
+                        "6": {
+                            "answerKeyId": 10,
+                            "answers": {
+                                "0": {
+                                    "content": "The Colosseum",
+                                    "correct": false
+                                },
+                                "1": {
+                                    "content": "The Mamertine Prison",
+                                    "correct": true
+                                },
+                                "2": {
+                                    "content": "The Forum of Nerva",
+                                    "correct": false
+                                },
+                                "3": {
+                                    "content": "The Castra Praetoria",
+                                    "correct": false
+                                }
+                            },
+                            "questionId": 10
+                        },
+                        "7": {
+                            "answerKeyId": 11,
+                            "answers": {
+                                "0": {
+                                    "content": "Nero",
+                                    "correct": false
+                                },
+                                "1": {
+                                    "content": "Titus",
+                                    "correct": false
+                                },
+                                "2": {
+                                    "content": "Vespasian",
+                                    "correct": true
+                                },
+                                "3": {
+                                    "content": "Flavius",
+                                    "correct": false
+                                }
+                            },
+                            "questionId": 11
+                        },
+                        "8": {
+                            "answerKeyId": 16,
+                            "answers": {
+                                "0": {
+                                    "content": "portico",
+                                    "correct": true
+                                },
+                                "1": {
+                                    "content": "oculus",
+                                    "correct": false
+                                },
+                                "2": {
+                                    "content": "barrel vault",
+                                    "correct": false
+                                },
+                                "3": {
+                                    "content": "cella",
+                                    "correct": false
+                                }
+                            },
+                            "questionId": 16
+                        },
+                        "9": {
+                            "answerKeyId": 17,
+                            "answers": {
+                                "0": {
+                                    "content": "The Adige",
+                                    "correct": false
+                                },
+                                "1": {
+                                    "content": "The Po",
+                                    "correct": false
+                                },
+                                "2": {
+                                    "content": "The Aniene",
+                                    "correct": false
+                                },
+                                "3": {
+                                    "content": "The Tiber",
+                                    "correct": true
+                                }
+                            },
+                            "questionId": 17
+                        }
+                    }
+
+                }
+            }
+        }
+    },
+  "assignments": {
+    "0": {
+        "creationDate": "2026-03-19T02:00:00Z",
+        "courses": ["ENG-L460"],
+        "classes": [23693],
+        "creatorId": "mormorga",
+        "collaborators": [],
+        "type": "quiz",
+        "name": "Quiz 1",
+        "dueDate": "2026-03-26T02:00:00Z",
+        "timeLimit": 1200000,
+        "shuffleQuestions": false,
+        "shuffleAnswers": false,
+        "weightDistribution": {
+            "type": "even"
+        },
+        "questions": {
+            "0": {
+                "questionId": 0,
+                "type": "multipleChoice",
+                "text": "Who wrote the novel Dawn?",
+                "answerKeyId": 0
+            },
+            "1": {
+                "questionId": 1,
+                "type": "multipleChoice",
+                "text": "What is the sub-genre of Shambleau?",
+                "answerKeyId": 1
+            },
+            "2": {
+                "questionId": 2,
+                "type": "multipleChoice",
+                "text": "Which of these is a short story?",
+                "answerKeyId": 2
+            },
+            "3": {
+                "questionId": 3,
+                "type": "multipleChoice",
+                "text": "Which of the following was written by the Strugatskii brothers?",
+                "answerKeyId": 3
+            }
+        },
+        "answerKeys": {
+            "0": {
+                "answerKeyId": 0,
+                "answers": {
+                    "0": {
+                        "content": "Octavia Butler",
+                        "correct": true
+                    },
+                    "1": {
+                        "content": "Samuel R. Delany",
+                        "correct": false
+                    },
+                    "2": {
+                        "content": "George Orwell",
+                        "correct": false
+                    },
+                    "3": {
+                        "content": "C.L. Moore",
+                        "correct": false
+                    }
+                },
+                "questionId": 0
+            },
+            "1": {
+                "answerKeyId": 1,
+                "answers": {
+                    "0": {
+                        "content": "Space Western",
+                        "correct": true
+                    },
+                    "1": {
+                        "content": "Space Opera",
+                        "correct": false
+                    },
+                    "2": {
+                        "content": "Cyberpunk",
+                        "correct": false
+                    },
+                    "3": {
+                        "content": "Hard sci-fi",
+                        "correct": false
+                    }
+                },
+                "questionId": 1
+            },
+            "2": {
+                "answerKeyId": 2,
+                "answers": {
+                    "0": {
+                    "content": "Journey to the Center of the Earth",
+                    "correct": false
+                    },
+                    "1": {
+                    "content": "A Memory Called Empire",
+                    "correct": false
+                    },
+                    "2": {
+                    "content": "There Will Come Soft Rains",
+                    "correct": true
+                    },
+                    "3": {
+                    "content": "Do Androids Dream of Electric Sheep?",
+                    "correct": false
+                    }
+                },
+                "questionId": 2
+            },
+            "3": {
+                "answerKeyId": 3,
+                "answers": {
+                    "0": {
+                        "content": "Story of Your Life",
+                        "correct": false
+                    },
+                    "1": {
+                        "content": "Roadside Picnic",
+                        "correct": true
+                    },
+                    "2": {
+                        "content": "The Left Hand of Darkness",
+                        "correct": false
+                    },
+                    "3": {
+                        "content": "Solaris",
+                        "correct": false
+                    }
+                },
+                "questionId": 3
+            }
+        }
+    },
+    "1": {
+      "creationDate": "2026-03-21T02:00:00Z",
+      "courses": ["ARTH-A490", "ARTH-A501", "CLAS-C421", "CLAS-C503"],
+      "classes": [35213, 35215, 35240, 35241],
+      "creatorId": "epoppen",
+      "collaborators": [],
+      "type": "quiz",
+      "name": "Quiz #1",
+      "dueDate": "2026-03-28T02:00:00Z",
+      "timeLimit": 1200000,
+      "shuffleQuestions": false,
+      "shuffleAnswers": true,
+      "weightDistribution": {
+            "type": "even"
+        },
+        "questions": {
+            "0": {
+                "questionId": 4,
+                "type": "multipleChoice",
+                "text": "Which of these is not a field of study within the study of built environment of ancient Rome?",
+                "answerKeyId": 4
+            },
+            "1": {
+                "questionId": 5,
+                "type": "multipleChoice",
+                "text": "When did topography of Rome as a field of study begin?",
+                "answerKeyId": 5
+            },
+            "2": {
+                "questionId": 6,
+                "type": "multipleChoice",
+                "text": "Who wasn't influenced by Falvio Biondo's methodology and use of textual resources?",
+                "answerKeyId": 6
+            },
+            "3": {
+                "questionId": 7,
+                "type": "multipleChoice",
+                "text": "Which of these is considered the quintessential English-language treatise on ancient Roman topography?",
+                "answerKeyId": 7
+            }
+        },
+        "answerKeys": {
+            "0": {
+                "answerKeyId": 4,
+                "answers": {
+                    "0": {
+                        "content": "Archaeology",
+                        "correct": false
+                    },
+                    "1": {
+                        "content": "Topology",
+                        "correct": true
+                    },
+                    "2": {
+                        "content": "Epigraphy",
+                        "correct": false
+                    },
+                    "3": {
+                        "content": "Philology",
+                        "correct": false
+                    }
+                },
+                "questionId": 4
+            },
+            "1": {
+                "answerKeyId": 5,
+                "answers": {
+                    "0": {
+                        "content": "The Italian Renaissance",
+                        "correct": true
+                    },
+                    "1": {
+                        "content": "As a response to the Napoleonic Wars",
+                        "correct": false
+                    },
+                    "2": {
+                        "content": "The Liberal period",
+                        "correct": false
+                    },
+                    "3": {
+                        "content": "The Republican era",
+                        "correct": false
+                    }
+                },
+                "questionId": 5
+            },
+            "2": {
+                "answerKeyId": 6,
+                "answers": {
+                    "0": {
+                        "content": "Pomponius Leto",
+                        "correct": false
+                        },
+                    "1": {
+                        "content": "Bernardo Rucellai",
+                        "correct": false
+                    },
+                    "2": {
+                        "content": "Poggio Bracciolini",
+                        "correct": true
+                    },
+                    "3": {
+                        "content": "Andrea Fulvio",
+                        "correct": false
+                    }
+                },
+                "questionId": 6
+            },
+            "3": {
+                "answerKeyId": 7,
+                "answers": {
+                    "0": {
+                        "content": "Information about the regions of the city",
+                        "correct": false
+                    },
+                    "1": {
+                        "content": "A Topographical Dictionary of Ancient Rome",
+                        "correct": true
+                    },
+                    "2": {
+                        "content": "Antiquities of the city",
+                        "correct": false
+                    },
+                    "3": {
+                        "content": "On the city of Rome",
+                        "correct": false
+                    }
+                },
+                "questionId": 7
+            }
+        }
+    },
+    "2": {
+      "creationDate": "2026-04-02T02:00:00Z",
+      "courses": ["ARTH-A490", "ARTH-A501", "CLAS-C421", "CLAS-C503"],
+      "classes": [35213, 35215, 35240, 35241],
+      "creatorId": "epoppen",
+      "collaborators": [],
+      "type": "forum",
+      "name": "Forum Post 1",
+      "dueDate": "2026-04-09T02:00:00Z",
+      "timeLimit": null,
+      "shuffleQuestions": false,
+      "shuffleAnswers": false,
+      "weightDistribution": {
+            "type": "even"
+        },
+      "questions": null,
+      "answerKeys": null
+    },
+    "3": {
+      "creationDate": "2026-04-03T02:00:00Z",
+      "courses": ["ARTH-A490", "ARTH-A501", "CLAS-C421", "CLAS-C503"],
+      "classes": [35213, 35215, 35240, 35241],
+      "creatorId": "epoppen",
+      "collaborators": [],
+      "type": "exam",
+      "name": "Exam 1",
+      "dueDate": "2026-05-30T02:00:00Z",
+      "timeLimit": 3600000,
+      "shuffleQuestions": true,
+      "shuffleAnswers": true,
+      "weightDistribution": {
+            "type": "custom",
+            "multipleChoice": 80,
+            "shortEssay": 20
+        },
+        "questions": {
+            "0": {
+                "questionId": 4,
+                "type": "multipleChoice",
+                "text": "Which of these is not a field of study within the study of built environment of ancient Rome?",
+                "answerKeyId": 4
+            },
+            "1": {
+                "questionId": 5,
+                "type": "multipleChoice",
+                "text": "When did topography of Rome as a field of study begin?",
+                "answerKeyId": 5
+            },
+            "2": {
+                "questionId": 6,
+                "type": "multipleChoice",
+                "text": "Who wasn't influenced by Falvio Biondo's methodology and use of textual resources?",
+                "answerKeyId": 6
+            },
+            "3": {
+                "questionId": 7,
+                "type": "multipleChoice",
+                "text": "Which of these is considered the quintessential English-language treatise on ancient Roman topography?",
+                "answerKeyId": 7
+            },
+            "4": {
+                "questionId": 8,
+                "type": "multipleChoice",
+                "text": "Where were the original settlements that combined to form Rome?",
+                "answerKeyId": 8
+            },
+            "5": {
+                "questionId": 9,
+                "type": "multipleChoice",
+                "text": "Which of these is not one of the Seven Hills of Rome?",
+                "answerKeyId": 9
+            },
+            "6": {
+                "questionId": 10,
+                "type": "multipleChoice",
+                "text": "Select the oldest monument below.",
+                "answerKeyId": 10
+            },
+            "7": {
+                "questionId": 11,
+                "type": "multipleChoice",
+                "text": "Who was emperor when construction on the Colosseum began?",
+                "answerKeyId": 11
+            },
+            "8": {
+                "questionId": 16,
+                "type": "multipleChoice",
+                "text": "Which term describes a covered entrance to a building typically featuring a roof supported by columns and topped with a pediment?",
+                "answerKeyId": 16
+            },
+            "9": {
+                "questionId": 17,
+                "type": "multipleChoice",
+                "text": "What is the river that was directly east of Rome?",
+                "answerKeyId": 17
+            },
+            "10": {
+                "questionId": 18,
+                "type": "shortEssay",
+                "maxLength": 4800,
+                "text": "How did the Tiber and it's location play a key role in the development of Rome?",
+                "answerKeyId": null
+            }
+        },
+        "answerKeys": {
+            "0": {
+                "answerKeyId": 4,
+                "answers": {
+                    "0": {
+                        "content": "Archaeology",
+                        "correct": false
+                    },
+                    "1": {
+                        "content": "Topology",
+                        "correct": true
+                    },
+                    "2": {
+                        "content": "Epigraphy",
+                        "correct": false
+                    },
+                    "3": {
+                        "content": "Philology",
+                        "correct": false
+                    }
+                },
+                "questionId": 4
+            },
+            "1": {
+                "answerKeyId": 5,
+                "answers": {
+                    "0": {
+                        "content": "The Italian Renaissance",
+                        "correct": true
+                    },
+                    "1": {
+                        "content": "As a response to the Napoleonic Wars",
+                        "correct": false
+                    },
+                    "2": {
+                        "content": "The Liberal period",
+                        "correct": false
+                    },
+                    "3": {
+                        "content": "The Republican era",
+                        "correct": false
+                    }
+                },
+                "questionId": 5
+            },
+            "2": {
+                "answerKeyId": 6,
+                "answers": {
+                        "0": {
+                            "content": "Pomponius Leto",
+                            "correct": false
+                            },
+                        "1": {
+                            "content": "Bernardo Rucellai",
+                            "correct": false
+                        },
+                        "2": {
+                            "content": "Poggio Bracciolini",
+                            "correct": true
+                        },
+                        "3": {
+                            "content": "Andrea Fulvio",
+                            "correct": false
+                        }
+                },
+                "questionId": 6
+            },
+            "3": {
+                "answerKeyId": 7,
+                "answers": {
+                    "0": {
+                        "content": "Information about the regions of the city",
+                        "correct": false
+                    },
+                    "1": {
+                        "content": "A Topographical Dictionary of Ancient Rome",
+                        "correct": true
+                    },
+                    "2": {
+                        "content": "Antiquities of the city",
+                        "correct": false
+                    },
+                    "3": {
+                        "content": "On the city of Rome",
+                        "correct": false
+                    }
+                },
+                "questionId": 7
+            },
+            "4": {
+                "answerKeyId": 8,
+                "answers": {
+                    "0": {
+                        "content": "The Seven Hills",
+                        "correct": true
+                    },
+                    "1": {
+                        "content": "The Pantheon",
+                        "correct": false
+                    },
+                    "2": {
+                        "content": "The Aurellian Walls",
+                        "correct": false
+                    },
+                    "3": {
+                        "content": "The Castra Praetoria",
+                        "correct": false
+                    }
+                },
+                "questionId": 8
+            },
+            "5": {
+                "answerKeyId": 9,
+                "answers": {
+                    "0": {
+                        "content": "Esquiline Hill",
+                        "correct": false
+                    },
+                    "1": {
+                        "content": "Vatican Hill",
+                        "correct": true
+                    },
+                    "2": {
+                        "content": "Caelian Hill",
+                        "correct": false
+                    },
+                    "3": {
+                        "content": "Capitoline Hill",
+                        "correct": false
+                    }
+                },
+                "questionId": 9
+            },
+            "6": {
+                "answerKeyId": 10,
+                "answers": {
+                    "0": {
+                        "content": "The Colosseum",
+                        "correct": false
+                    },
+                    "1": {
+                        "content": "The Mamertine Prison",
+                        "correct": true
+                    },
+                    "2": {
+                        "content": "The Forum of Nerva",
+                        "correct": false
+                    },
+                    "3": {
+                        "content": "The Castra Praetoria",
+                        "correct": false
+                    }
+                },
+                "questionId": 10
+            },
+            "7": {
+                "answerKeyId": 11,
+                "answers": {
+                    "0": {
+                        "content": "Nero",
+                        "correct": false
+                    },
+                    "1": {
+                        "content": "Titus",
+                        "correct": false
+                    },
+                    "2": {
+                        "content": "Vespasian",
+                        "correct": true
+                    },
+                    "3": {
+                        "content": "Flavius",
+                        "correct": false
+                    }
+                },
+                "questionId": 11
+            },
+            "8": {
+                "answerKeyId": 16,
+                "answers": {
+                    "0": {
+                        "content": "portico",
+                        "correct": true
+                    },
+                    "1": {
+                        "content": "oculus",
+                        "correct": false
+                    },
+                    "2": {
+                        "content": "barrel vault",
+                        "correct": false
+                    },
+                    "3": {
+                        "content": "cella",
+                        "correct": false
+                    }
+                },
+                "questionId": 16
+            },
+            "9": {
+                "answerKeyId": 17,
+                "answers": {
+                    "0": {
+                        "content": "The Adige",
+                        "correct": false
+                    },
+                    "1": {
+                        "content": "The Po",
+                        "correct": false
+                    },
+                    "2": {
+                        "content": "The Aniene",
+                        "correct": false
+                    },
+                    "3": {
+                        "content": "The Tiber",
+                        "correct": true
+                    }
+                },
+                "questionId": 17
+            }
+        }
+    },
+    "4": {
+        "creationDate": "2026-04-04T02:00:00Z",
+        "courses": ["ENG-L460"],
+        "classes": [23693],
+        "creatorId": "mormorga",
+        "collaborators": [],
+        "type": "artifact",
+        "name": "Essay 1",
+        "dueDate": "2026-05-11T03:59:59Z",
+        "timeLimit": null,
+        "shuffleQuestions": false,
+        "shuffleAnswers": false,
+        "weightDistribution": {
+            "type": "even"
+        },
+        "questions": null,
+        "answerKeys": null
+    },
+    "5": {
+      "creationDate": "2026-05-18T02:00:00Z",
+      "courses": ["ENG-L460"],
+      "classes": [23693],
+      "creatorId": "mormorga",
+      "collaborators": [],
+      "type": "quiz",
+      "name": "Quiz 2",
+      "dueDate": "2026-05-25T03:59:59Z",
+      "timeLimit": 1200000,
+      "shuffleQuestions": false,
+      "shuffleAnswers": false,
+      "weightDistribution": {
+            "type": "even"
+        },
+        "questions": {
+            "0": {
+                "questionId": 12,
+                "type": "multipleChoice",
+                "text": "Who wrote Northwest of Earth?",
+                "answerKeyId": 12
+            },
+            "1": {
+                "questionId": 13,
+                "type": "multipleChoice",
+                "text": "What is the first novel in the Hainish Cycle?",
+                "answerKeyId": 13
+            },
+            "2": {
+                "questionId": 14,
+                "type": "multipleChoice",
+                "text": "Which book originated the term cyberspace?",
+                "answerKeyId": 14
+            },
+            "3": {
+                "questionId": 15,
+                "type": "multipleChoice",
+                "text": "What series by Octavia Butler has underlying themes related to consent, colonialism, and gender identity?",
+                "answerKeyId": 15
+            }
+        },
+        "answerKeys": {
+            "0": {
+                "answerKeyId": 12,
+                "answers": {
+                    "0": {
+                        "content": "Octavia Butler",
+                        "correct": false
+                    },
+                    "1": {
+                        "content": "Samuel R. Delany",
+                        "correct": false
+                    },
+                    "2": {
+                        "content": "George Orwell",
+                        "correct": false
+                    },
+                    "3": {
+                        "content": "C.L. Moore",
+                        "correct": true
+                    }
+                },
+                "questionId": 12
+            },
+            "1": {
+                "answerKeyId": 13,
+                "answers": {
+                    "0": {
+                        "content": "Rocannon's World",
+                        "correct": true
+                    },
+                    "1": {
+                        "content": "The Left Hand of Darkness",
+                        "correct": false
+                    },
+                    "2": {
+                        "content": "The Dispossessed",
+                        "correct": false
+                    },
+                    "3": {
+                        "content": "A Wizard of Earthsea",
+                        "correct": false
+                    }
+                },
+                "questionId": 13
+            },
+            "2": {
+                "answerKeyId": 14,
+                "answers": {
+                    "0": {
+                        "content": "Snowcrash",
+                        "correct": false
+                    },
+                    "1": {
+                        "content": "Neuromancer",
+                        "correct": true
+                    },
+                    "2": {
+                        "content": "Do Androids Dream of Electric Sheep?",
+                        "correct": false
+                    },
+                    "3": {
+                        "content": "Altered Carbon",
+                        "correct": false
+                    }
+                },
+                "questionId": 14
+            },
+            "3": {
+                "answerKeyId": 15,
+                "answers": {
+                    "0": {
+                        "content": "The Sprawl Trilogy",
+                        "correct": false
+                    },
+                    "1": {
+                        "content": "The Broken Earth Trilogy",
+                        "correct": false
+                    },
+                    "2": {
+                        "content": "The Xenogenesis Trilogy",
+                        "correct": true
+                    },
+                    "3": {
+                        "content": "The Hyperion Cantos",
+                        "correct": false
+                    }
+                },
+                "questionId": 15
+            }
+        }
+    }
+  },
+  "questions": {
+    "0": {
+      "creationDate": "2026-03-19T02:00:00Z",
+      "courses": ["ENG-L460"],
+      "classes": [23693],
+      "creatorId": "mormorga",
+      "collaborators": [],
+      "assignments": [0],
+      "type": "multipleChoice",
+      "text": "Who wrote the novel Dawn?",
+      "answerKeyId": 0
+    },
+    "1": {
+      "creationDate": "2026-03-19T02:00:00Z",
+      "courses": ["ENG-L460"],
+      "classes": [23693],
+      "creatorId": "mormorga",
+      "collaborators": [],
+      "assignments": [0],
+      "type": "multipleChoice",
+      "text": "What is the sub-genre of Shambleau?",
+      "answerKeyId": 1
+    },
+    "2": {
+      "creationDate": "2026-03-19T02:00:00Z",
+      "courses": ["ENG-L460"],
+      "classes": [23693],
+      "creatorId": "mormorga",
+      "collaborators": [],
+      "assignments": [0],
+      "type": "multipleChoice",
+      "text": "Which of these is a short story?",
+      "answerKeyId": 2
+    },
+    "3": {
+      "creationDate": "2026-03-19T02:00:00Z",
+      "courses": ["ENG-L460"],
+      "classes": [23693],
+      "creatorId": "mormorga",
+      "collaborators": [],
+      "assignments": [0],
+      "type": "multipleChoice",
+      "text": "Which of the following was written by the Strugatskii brothers?",
+      "answerKeyId": 3
+    },
+    "4": {
+      "creationDate": "2026-03-21T02:00:00Z",
+      "courses": ["ARTH-A490", "ARTH-A501", "CLAS-C421", "CLAS-C503"],
+      "classes": [35213, 35215, 35240, 35241],
+      "creatorId": "epoppen",
+      "collaborators": [],
+      "assignments": [1, 3],
+      "type": "multipleChoice",
+      "text": "Which of these is not a field of study within the study of built environment of ancient Rome?",
+      "answerKeyId": 4
+    },
+    "5": {
+      "creationDate": "2026-03-21T02:00:00Z",
+      "courses": ["ARTH-A490", "ARTH-A501", "CLAS-C421", "CLAS-C503"],
+      "classes": [35213, 35215, 35240, 35241],
+      "creatorId": "epoppen",
+      "collaborators": [],
+      "assignments": [1, 3],
+      "type": "multipleChoice",
+      "text": "When did topography of Rome as a field of study begin?",
+      "answerKeyId": 5
+    },
+    "6": {
+      "creationDate": "2026-03-21T02:00:00Z",
+      "courses": ["ARTH-A490", "ARTH-A501", "CLAS-C421", "CLAS-C503"],
+      "classes": [35213, 35215, 35240, 35241],
+      "creatorId": "epoppen",
+      "collaborators": [],
+      "assignments": [1, 3],
+      "type": "multipleChoice",
+      "text": "Who wasn't influenced by Falvio Biondo's methodology and use of textual resources?",
+      "answerKeyId": 6
+    },
+    "7": {
+      "creationDate": "2026-03-21T02:00:00Z",
+      "courses": ["ARTH-A490", "ARTH-A501", "CLAS-C421", "CLAS-C503"],
+      "classes": [35213, 35215, 35240, 35241],
+      "creatorId": "epoppen",
+      "collaborators": [],
+      "assignments": [1, 3],
+      "type": "multipleChoice",
+      "text": "Which of these is considered the quintessential English-language treatise on ancient Roman topography?",
+      "answerKeyId": 7
+    },
+    "8": {
+      "creationDate": "2026-03-21T02:00:00Z",
+      "courses": ["ARTH-A490", "ARTH-A501", "CLAS-C421", "CLAS-C503"],
+      "classes": [35213, 35215, 35240, 35241],
+      "creatorId": "epoppen",
+      "collaborators": [],
+      "assignments": [3],
+      "type": "multipleChoice",
+      "text": "Where were the original settlements that combined to form Rome?",
+      "answerKeyId": 8
+    },
+    "9": {
+      "creationDate": "2026-04-03T02:00:00Z",
+      "courses": ["ARTH-A490", "ARTH-A501", "CLAS-C421", "CLAS-C503"],
+      "classes": [35213, 35215, 35240, 35241],
+      "creatorId": "epoppen",
+      "collaborators": [],
+      "assignments": [3],
+      "type": "multipleChoice",
+      "text": "Which of these is not one of the Seven Hills of Rome?",
+      "answerKeyId": 9
+    },
+    "10": {
+      "creationDate": "2026-04-03T02:05:00Z",
+      "courses": ["ARTH-A490", "ARTH-A501", "CLAS-C421", "CLAS-C503"],
+      "classes": [35213, 35215, 35240, 35241],
+      "creatorId": "epoppen",
+      "collaborators": [],
+      "assignments": [3],
+      "type": "multipleChoice",
+      "text": "Select the oldest monument below.",
+      "answerKeyId": 10
+    },
+    "11": {
+      "creationDate": "2026-04-03T02:10:00Z",
+      "courses": ["ARTH-A490", "ARTH-A501", "CLAS-C421", "CLAS-C503"],
+      "classes": [35213, 35215, 35240, 35241],
+      "creatorId": "epoppen",
+      "collaborators": [],
+      "assignments": [3],
+      "type": "multipleChoice",
+      "text": "Who was emperor when construction on the Colosseum began?",
+      "answerKeyId": 11
+    },
+    "12": {
+      "creationDate": "2026-05-18T02:00:00Z",
+      "courses": ["ENG-L460"],
+      "classes": [23693],
+      "creatorId": "mormorga",
+      "collaborators": [],
+      "assignments": [5],
+      "type": "multipleChoice",
+      "text": "Who wrote Northwest of Earth?",
+      "answerKeyId": 12
+    },
+    "13": {
+      "creationDate": "2026-05-18T02:00:00Z",
+      "courses": ["ENG-L460"],
+      "classes": [23693],
+      "creatorId": "mormorga",
+      "collaborators": [],
+      "assignments": [5],
+      "type": "multipleChoice",
+      "text": "What is the first novel in the Hainish Cycle?",
+      "answerKeyId": 13
+    },
+    "14": {
+      "creationDate": "2026-05-18T02:00:00Z",
+      "courses": ["ENG-L460"],
+      "classes": [23693],
+      "creatorId": "mormorga",
+      "collaborators": [],
+      "assignments": [5],
+      "type": "multipleChoice",
+      "text": "Which book originated the term cyberspace?",
+      "answerKeyId": 14
+    },
+    "15": {
+      "creationDate": "2026-05-18T02:00:00Z",
+      "courses": ["ENG-L460"],
+      "classes": [23693],
+      "creatorId": "mormorga",
+      "collaborators": [],
+      "assignments": [5],
+      "type": "multipleChoice",
+      "text": "What series by Octavia Butler has underlying themes related to consent, colonialism, and gender identity?",
+      "answerKeyId": 15
+    },
+    "16": {
+      "creationDate": "2026-05-18T02:00:00Z",
+      "courses": ["ARTH-A490", "ARTH-A501", "CLAS-C421", "CLAS-C503"],
+      "classes": [35213, 35215, 35240, 35241],
+      "creatorId": "epoppen",
+      "collaborators": [],
+      "assignments": [3],
+      "type": "multipleChoice",
+      "text": "Which term describes a covered entrance to a building typically featuring a roof supported by columns and topped with a pediment?",
+      "answerKeyId": 16
+    },
+    "17": {
+      "creationDate": "2026-05-18T02:00:00Z",
+      "courses": ["ARTH-A490", "ARTH-A501", "CLAS-C421", "CLAS-C503"],
+      "classes": [35213, 35215, 35240, 35241],
+      "creatorId": "epoppen",
+      "collaborators": [],
+      "assignments": [3],
+      "type": "multipleChoice",
+      "text": "What is the river that was directly east of Rome?",
+      "answerKeyId": 17
+    },
+    "18": {
+      "creationDate": "2026-05-18T02:00:00Z",
+      "courses": ["ARTH-A490", "ARTH-A501", "CLAS-C421", "CLAS-C503"],
+      "classes": [35213, 35215, 35240, 35241],
+      "creatorId": "epoppen",
+      "collaborators": [],
+      "assignments": [3],
+      "type": "shortEssay",
+      "maxLength": 4800,
+      "text": "How did the Tiber and it's location play a key role in the development of Rome?",
+      "answerKeyId": null
+    }
+  },
+  "answerKeys": {
+    "0": {
+      "creationDate": "2026-03-19T02:00:00Z",
+      "courses": ["ENG-L460"],
+      "classes": [23693],
+      "creatorId": "mormorga",
+      "collaborators": [],
+      "assignments": [0],
+      "questionId": 0,
+      "answers": {
+        "0": {
+          "content": "Octavia Butler",
+          "correct": true
+        },
+        "1": {
+          "content": "Samuel R. Delany",
+          "correct": false
+        },
+        "2": {
+          "content": "George Orwell",
+          "correct": false
+        },
+        "3": {
+          "content": "C.L. Moore",
+          "correct": false
+        }
+      }
+    },
+    "1": {
+      "creationDate": "2026-03-19T02:00:00Z",
+      "courses": ["ENG-L460"],
+      "classes": [23693],
+      "creatorId": "mormorga",
+      "collaborators": [],
+      "assignments": [0],
+      "questionId": 1,
+      "answers": {
+        "0": {
+          "content": "Space Western",
+          "correct": true
+        },
+        "1": {
+          "content": "Space Opera",
+          "correct": false
+        },
+        "2": {
+          "content": "Cyberpunk",
+          "correct": false
+        },
+        "3": {
+          "content": "Hard sci-fi",
+          "correct": false
+        }
+      }
+    },
+    "2": {
+      "creationDate": "2026-03-19T02:00:00Z",
+      "courses": ["ENG-L460"],
+      "classes": [23693],
+      "creatorId": "mormorga",
+      "collaborators": [],
+      "assignments": [0],
+      "questionId": 2,
+      "answers": {
+        "0": {
+          "content": "Journey to the Center of the Earth",
+          "correct": false
+        },
+        "1": {
+          "content": "A Memory Called Empire",
+          "correct": false
+        },
+        "2": {
+          "content": "There Will Come Soft Rains",
+          "correct": true
+        },
+        "3": {
+          "content": "Do Androids Dream of Electric Sheep?",
+          "correct": false
+        }
+      }
+    },
+    "3": {
+      "creationDate": "2026-03-19T02:00:00Z",
+      "courses": ["ENG-L460"],
+      "classes": [23693],
+      "creatorId": "mormorga",
+      "collaborators": [],
+      "assignments": [0],
+      "questionId": 3,
+      "answers": {
+        "0": {
+          "content": "Story of Your Life",
+          "correct": false
+        },
+        "1": {
+          "content": "Roadside Picnic",
+          "correct": true
+        },
+        "2": {
+          "content": "The Left Hand of Darkness",
+          "correct": false
+        },
+        "3": {
+          "content": "Solaris",
+          "correct": false
+        }
+      }
+    },
+    "4": {
+      "creationDate": "2026-03-21T02:00:00Z",
+      "courses": ["ARTH-A490", "ARTH-A501", "CLAS-C421", "CLAS-C503"],
+      "classes": [35213, 35215, 35240, 35241],
+      "creatorId": "epoppen",
+      "collaborators": [],
+      "assignments": [1, 3],
+      "questionId": 4,
+      "answers": {
+        "0": {
+          "content": "Archaeology",
+          "correct": false
+        },
+        "1": {
+          "content": "Topology",
+          "correct": true
+        },
+        "2": {
+          "content": "Epigraphy",
+          "correct": false
+        },
+        "3": {
+          "content": "Philology",
+          "correct": false
+        }
+      }
+    },
+    "5": {
+      "creationDate": "2026-03-21T02:00:00Z",
+      "courses": ["ARTH-A490", "ARTH-A501", "CLAS-C421", "CLAS-C503"],
+      "classes": [35213, 35215, 35240, 35241],
+      "creatorId": "epoppen",
+      "collaborators": [],
+      "assignments": [1, 3],
+      "questionId": 5,
+      "answers": {
+        "0": {
+          "content": "The Italian Renaissance",
+          "correct": true
+        },
+        "1": {
+          "content": "As a response to the Napoleonic Wars",
+          "correct": false
+        },
+        "2": {
+          "content": "The Liberal period",
+          "correct": false
+        },
+        "3": {
+          "content": "The Republican era",
+          "correct": false
+        }
+      }
+    },
+    "6": {
+      "creationDate": "2026-03-21T02:00:00Z",
+      "courses": ["ARTH-A490", "ARTH-A501", "CLAS-C421", "CLAS-C503"],
+      "classes": [35213, 35215, 35240, 35241],
+      "creatorId": "epoppen",
+      "collaborators": [],
+      "assignments": [1, 3],
+      "questionId": 6,
+      "answers": {
+        "0": {
+          "content": "Pomponius Leto",
+          "correct": false
+        },
+        "1": {
+          "content": "Bernardo Rucellai",
+          "correct": false
+        },
+        "2": {
+          "content": "Poggio Bracciolini",
+          "correct": true
+        },
+        "3": {
+          "content": "Andrea Fulvio",
+          "correct": false
+        }
+      }
+    },
+    "7": {
+      "creationDate": "2026-03-21T02:00:00Z",
+      "courses": ["ARTH-A490", "ARTH-A501", "CLAS-C421", "CLAS-C503"],
+      "classes": [35213, 35215, 35240, 35241],
+      "creatorId": "epoppen",
+      "collaborators": [],
+      "assignments": [1, 3],
+      "questionId": 7,
+      "answers": {
+        "0": {
+          "content": "Information about the regions of the city",
+          "correct": false
+        },
+        "1": {
+          "content": "A Topographical Dictionary of Ancient Rome",
+          "correct": true
+        },
+        "2": {
+          "content": "Antiquities of the city",
+          "correct": false
+        },
+        "3": {
+          "content": "On the city of Rome",
+          "correct": false
+        }
+      }
+    },
+    "8": {
+      "creationDate": "2026-03-21T02:00:00Z",
+      "courses": ["ARTH-A490", "ARTH-A501", "CLAS-C421", "CLAS-C503"],
+      "classes": [35213, 35215, 35240, 35241],
+      "creatorId": "epoppen",
+      "collaborators": [],
+      "assignments": [3],
+      "questionId": 8,
+      "answers": {
+        "0": {
+          "content": "The Seven Hills",
+          "correct": true
+        },
+        "1": {
+          "content": "The Pantheon",
+          "correct": false
+        },
+        "2": {
+          "content": "The Aurellian Walls",
+          "correct": false
+        },
+        "3": {
+          "content": "The Castra Praetoria",
+          "correct": false
+        }
+      }
+    },
+    "9": {
+      "creationDate": "2026-03-21T02:00:00Z",
+      "courses": ["ARTH-A490", "ARTH-A501", "CLAS-C421", "CLAS-C503"],
+      "classes": [35213, 35215, 35240, 35241],
+      "creatorId": "epoppen",
+      "collaborators": [],
+      "assignments": [3],
+      "questionId": 9,
+      "answers": {
+        "0": {
+          "content": "Esquiline Hill",
+          "correct": false
+        },
+        "1": {
+          "content": "Vatican Hill",
+          "correct": true
+        },
+        "2": {
+          "content": "Caelian Hill",
+          "correct": false
+        },
+        "3": {
+          "content": "Capitoline Hill",
+          "correct": false
+        }
+      }
+    },
+    "10": {
+      "creationDate": "2026-03-21T02:00:00Z",
+      "courses": ["ARTH-A490", "ARTH-A501", "CLAS-C421", "CLAS-C503"],
+      "classes": [35213, 35215, 35240, 35241],
+      "creatorId": "epoppen",
+      "collaborators": [],
+      "assignments": [3],
+      "questionId": 10,
+      "answers": {
+        "0": {
+          "content": "The Colosseum",
+          "correct": false
+        },
+        "1": {
+          "content": "The Mamertine Prison",
+          "correct": true
+        },
+        "2": {
+          "content": "The Forum of Nerva",
+          "correct": false
+        },
+        "3": {
+          "content": "The Castra Praetoria",
+          "correct": false
+        }
+      }
+    },
+    "11": {
+      "creationDate": "2026-03-21T02:00:00Z",
+      "courses": ["ARTH-A490", "ARTH-A501", "CLAS-C421", "CLAS-C503"],
+      "classes": [35213, 35215, 35240, 35241],
+      "creatorId": "epoppen",
+      "collaborators": [],
+      "assignments": [3],
+      "questionId": 11,
+      "answers": {
+        "0": {
+          "content": "Nero",
+          "correct": false
+        },
+        "1": {
+          "content": "Titus",
+          "correct": false
+        },
+        "2": {
+          "content": "Vespasian",
+          "correct": true
+        },
+        "3": {
+          "content": "Flavius",
+          "correct": false
+        }
+      }
+    },
+    "12": {
+      "creationDate": "2026-03-19T02:00:00Z",
+      "courses": ["ENG-L460"],
+      "classes": [23693],
+      "creatorId": "mormorga",
+      "collaborators": [],
+      "assignments": [5],
+      "questionId": 12,
+      "answers": {
+        "0": {
+          "content": "Octavia Butler",
+          "correct": false
+        },
+        "1": {
+          "content": "Samuel R. Delany",
+          "correct": false
+        },
+        "2": {
+          "content": "George Orwell",
+          "correct": false
+        },
+        "3": {
+          "content": "C.L. Moore",
+          "correct": true
+        }
+      }
+    },
+    "13": {
+      "creationDate": "2026-03-19T02:00:00Z",
+      "courses": ["ENG-L460"],
+      "classes": [23693],
+      "creatorId": "mormorga",
+      "collaborators": [],
+      "assignments": [5],
+      "questionId": 13,
+      "answers": {
+        "0": {
+          "content": "Rocannon's World",
+          "correct": true
+        },
+        "1": {
+          "content": "The Left Hand of Darkness",
+          "correct": false
+        },
+        "2": {
+          "content": "The Dispossessed",
+          "correct": false
+        },
+        "3": {
+          "content": "A Wizard of Earthsea",
+          "correct": false
+        }
+      }
+    },
+    "14": {
+      "creationDate": "2026-03-19T02:00:00Z",
+      "courses": ["ENG-L460"],
+      "classes": [23693],
+      "creatorId": "mormorga",
+      "collaborators": [],
+      "assignments": [5],
+      "questionId": 14,
+      "answers": {
+        "0": {
+          "content": "Snowcrash",
+          "correct": false
+        },
+        "1": {
+          "content": "Neuromancer",
+          "correct": true
+        },
+        "2": {
+          "content": "Do Androids Dream of Electric Sheep?",
+          "correct": false
+        },
+        "3": {
+          "content": "Altered Carbon",
+          "correct": false
+        }
+      }
+    },
+    "15": {
+      "creationDate": "2026-03-19T02:00:00Z",
+      "courses": ["ENG-L460"],
+      "classes": [23693],
+      "creatorId": "mormorga",
+      "collaborators": [],
+      "assignments": [5],
+      "questionId": 15,
+      "answers": {
+        "0": {
+          "content": "The Sprawl Trilogy",
+          "correct": false
+        },
+        "1": {
+          "content": "The Broken Earth Trilogy",
+          "correct": false
+        },
+        "2": {
+          "content": "The Xenogenesis Trilogy",
+          "correct": true
+        },
+        "3": {
+          "content": "The Hyperion Cantos",
+          "correct": false
+        }
+      }
+    },
+    "16": {
+      "creationDate": "2026-03-21T02:00:00Z",
+      "courses": ["ARTH-A490", "ARTH-A501", "CLAS-C421", "CLAS-C503"],
+      "classes": [35213, 35215, 35240, 35241],
+      "creatorId": "epoppen",
+      "collaborators": [],
+      "assignments": [3],
+      "questionId": 16,
+      "answers": {
+        "0": {
+          "content": "portico",
+          "correct": true
+        },
+        "1": {
+          "content": "oculus",
+          "correct": false
+        },
+        "2": {
+          "content": "barrel vault",
+          "correct": false
+        },
+        "3": {
+          "content": "cella",
+          "correct": false
+        }
+      }
+    },
+    "17": {
+      "creationDate": "2026-03-21T02:00:00Z",
+      "courses": ["ARTH-A490", "ARTH-A501", "CLAS-C421", "CLAS-C503"],
+      "classes": [35213, 35215, 35240, 35241],
+      "creatorId": "epoppen",
+      "collaborators": [],
+      "assignments": [3],
+      "questionId": 17,
+      "answers": {
+        "0": {
+          "content": "The Adige",
+          "correct": false
+        },
+        "1": {
+          "content": "The Po",
+          "correct": false
+        },
+        "2": {
+          "content": "The Aniene",
+          "correct": false
+        },
+        "3": {
+          "content": "The Tiber",
+          "correct": true
+        }
+      }
+    }
+  },
+  "submissions": {
+    "0": {
+      "startedAt": "2026-03-24T02:00:00Z",
+      "submittedAt": "2026-03-24T02:15:00Z",
+      "assignmentId": 0,
+      "classId": 23693,
+      "studentId": "racmocon",
+      "timeUsed": 900000,
+      "answers": [0, 0, 2, 3],
+      "graderId": "mormorga",
+      "gradedAt": "2026-03-24T02:15:00Z",
+      "grade": 75
+    },
+    "1": {
+      "startedAt": "2026-03-25T05:30:00Z",
+      "submittedAt": "2026-03-25T05:40:00Z",
+      "assignmentId": 0,
+      "classId": 23693,
+      "studentId": "vwright",
+      "timeUsed": 600000,
+      "answers": [0, 0, 2, 1],
+      "graderId": "mormorga",
+      "gradedAt": "2026-03-25T05:40:00Z",
+      "grade": 100
+    },
+    "2": {
+      "startedAt": "2026-03-24T02:00:00Z",
+      "submittedAt": "2026-03-24T02:15:00Z",
+      "assignmentId": 0,
+      "classId": 23693,
+      "studentId": "jasmineCat",
+      "timeUsed": 900000,
+      "answers": [0, 0, 2, 3],
+      "graderId": "mormorga",
+      "gradedAt": "2026-03-24T02:15:00Z",
+      "grade": 75
+    },
+    "3": {
+      "startedAt": "2026-03-23T21:15:00Z",
+      "submittedAt": "2026-03-23T21:30:00Z",
+      "assignmentId": 1,
+      "classId": 35213,
+      "studentId": "vwright",
+      "timeUsed": 900000,
+      "answers": [1, 0, 2, 1],
+      "graderId": "epoppen",
+      "gradedAt": "2026-03-23T21:30:00Z",
+      "grade": 100
+    },
+    "4": {
+      "startedAt": "2026-03-23T21:15:00Z",
+      "submittedAt": "2026-03-23T21:30:00Z",
+      "assignmentId": 1,
+      "classId": 35240,
+      "studentId": "bradcat",
+      "timeUsed": 900000,
+      "answers": [1, 0, 0, 3],
+      "graderId": "epoppen",
+      "gradedAt": "2026-03-23T21:30:00Z",
+      "grade": 50
+    },
+    "5": {
+      "startedAt": null,
+      "submittedAt": "2026-03-23T21:55:00Z",
+      "assignmentId": 2,
+      "classId": 35240,
+      "studentId": "bradcat",
+      "timeUsed": null,
+      "answers": null,
+      "forumId": 0,
+      "postId": 0,
+      "graderId": "epoppen",
+      "gradedAt": "2026-04-11T05:00:00Z",
+      "grade": 100
+    },
+    "6": {
+      "startedAt": "2026-03-24T21:15:00Z",
+      "submittedAt": "2026-03-24T21:30:00Z",
+      "assignmentId": 1,
+      "classId": 35240,
+      "studentId": "andrewjquick",
+      "timeUsed": 900000,
+      "answers": [1, 0, 2, 1],
+      "graderId": "epoppen",
+      "gradedAt": "2026-03-24T21:30:00Z",
+      "grade": 100
+    },
+    "7": {
+      "startedAt": "2026-03-27T21:15:00Z",
+      "submittedAt": "2026-03-27T21:30:00Z",
+      "assignmentId": 1,
+      "classId": 35240,
+      "studentId": "bradcat",
+      "timeUsed": 900000,
+      "answers": [1, 0, 2, 3],
+      "graderId": "epoppen",
+      "gradedAt": "2026-03-27T21:30:00Z",
+      "grade": 75
+    },
+    "8": {
+      "startedAt": null,
+      "submittedAt": "2026-03-28T21:55:00Z",
+      "assignmentId": 2,
+      "classId": 35240,
+      "studentId": "andrewjquick",
+      "timeUsed": null,
+      "answers": null,
+      "forumId": 0,
+      "postId": 1,
+      "graderId": "epoppen",
+      "gradedAt": "2026-04-11T05:00:00Z",
+      "grade": null
+    },
+    "9": {
+      "startedAt": null,
+      "submittedAt": "2026-04-05T21:55:00Z",
+      "assignmentId": 2,
+      "classId": 35240,
+      "studentId": "racmocon",
+      "timeUsed": null,
+      "answers": null,
+      "forumId": 0,
+      "postId": 2,
+      "graderId": "epoppen",
+      "gradedAt": "2026-04-11T05:00:00Z",
+      "grade": null
+    },
+    "10": {
+      "startedAt": null,
+      "submittedAt": "2026-04-06T21:55:00Z",
+      "assignmentId": 2,
+      "classId": 35213,
+      "studentId": "vwright",
+      "timeUsed": null,
+      "answers": null,
+      "forumId": 0,
+      "postId": 3,
+      "graderId": "epoppen",
+      "gradedAt": "2026-04-11T05:00:00Z",
+      "grade": null
+    }
+  },
+  "instructors": {
+    "epoppen": {
+      "name": "Elise Poppen",
+      "email": "epoppen@iu.edu",
+      "activeClasses": [35213, 35215, 35240, 35241]
+    },
+    "yanweit": {
+      "name": "Weitian Yan",
+      "email": "yanweit@iu.edu",
+      "activeClasses": [22758]
+    },
+    "mormorga": {
+      "name": "Monique Morgan",
+      "email": "mormorga@iu.edu",
+      "activeClasses": [23693]
+    }
+  },
+  "students": {
+    "racmocon": {
+      "name": "Rachel O'Connor",
+      "activeClasses": [23693, 35240]
+    },
+    "andrewjquick": {
+      "name": "Andrew Quick",
+      "activeClasses": [35240]
+    },
+    "jasmineCat": {
+      "name": "Jasmine Cat",
+      "activeClasses": [23693]
+    },
+    "bradCat": {
+      "name": "Brad Cat",
+      "activeClasses": [35240]
+    },
+    "vwright": {
+      "name": "Veronica Wright",
+      "activeClasses": [23693, 35213]
+    }
+  }
+}
