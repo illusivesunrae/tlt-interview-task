@@ -23,9 +23,10 @@ import BaseCard from '../components/BaseCard.vue'
 const store = useEnvironmentStore()
 
 watch(() => store.activeClasses, (newVal, _) => {
-    store.fetchUpcomingAssignments()
-    //store.fetchPreviousAssignments(item)
-})
+    if (newVal.length) {
+        store.fetchDashboard()
+    }
+}, { immediate: true })
 
 onMounted(() => {
     store.fetchActiveClasses()

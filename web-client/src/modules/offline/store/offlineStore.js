@@ -16,7 +16,6 @@ export const useOfflineStore = defineStore('offline', () => {
   const studentAssignmentAnswers = ref([])
   const studentAssignmentGrade = ref(null)
   const upcomingAssignments = ref([])
-  const upcomingCompletedAssignments = ref([])
 
   const currentQuestion = reactive({
     index: 0,
@@ -64,14 +63,16 @@ export const useOfflineStore = defineStore('offline', () => {
         return response.json()
       })
       .then((data) => {
+        // use data to set activeClasses.value
         const student = localStorage.getItem('username')
         let dataArray = []
 
+        // get all classes that the student is currently taking
         let contextObject = data?.students?.[student]?.classes
 
         for (const [key, value] of Object.entries(contextObject)) {
           if (value?.term === currentTerm.value) {
-            dataArray.push(key)
+            dataArray.push(+key)
           }
         }
         activeClasses.value = dataArray
@@ -82,40 +83,101 @@ export const useOfflineStore = defineStore('offline', () => {
       })
   }
 
-  const fetchPreviousAssignments = async (classId) => {
-    const endDate = new Date().toISOString()
+  const fetchDashboard = async () => {
+    const student = localStorage.getItem('username')
+    const oneMonthFromNow = new Date(new Date().getTime() + 35 * 24 * 60 * 60 * 1000).toISOString()
 
     fetch('/data-restructured.json')
       .then((response) => {
         return response.json()
       })
+      // create upcoming assignments for the dashboard
       .then((data) => {
+        // use data to set upcomingAssignments.value
+        // then pass relevant data used to portion for
+        let allUpcomingAssignmentsArray = []
+        let upcomingAssignmentsWithSubmissionsArray = []
         let dataArray = []
+
+        activeClasses.value.forEach((activeClass, index) => {
+          // get all assignments for the classes that the student is currently taking
+          let assignmentsObject = data?.classes?.[activeClass]?.assignments
+
+          Object.entries(assignmentsObject).forEach(([id, assignment]) => {
+            // for each assignment get the object, include a classId and an index
+            const mergedData = {
+              ...assignmentsObject[+id],
+              classId: activeClass,
+              index: +id,
+            }
+
+            dataArray.push(mergedData)
+
+            if (assignment.submissions) {
+              Object.entries(assignment?.submissions).forEach((submission, index) => {
+                // if the assignment has submissions attached, check to see if the current student already submitted it
+                if (submission[1]?.studentId === student) {
+                  upcomingAssignmentsWithSubmissionsArray.push(mergedData)
+                }
+              })
+            }
+          })
+        })
+
+        // filter out any past due assignments
+        // sets future assignments inclusive of today
+        allUpcomingAssignmentsArray.push(...filterDates(dataArray, oneMonthFromNow))
+
+        const allUpcomingAssignmentsSet = new Set(
+          allUpcomingAssignmentsArray.sort(
+            (a, b) => new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime(),
+          ),
+        )
+
+        const upcomingAssignmentsWithSubmissionsSet = new Set(
+          upcomingAssignmentsWithSubmissionsArray.sort(
+            (a, b) => new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime(),
+          ),
+        )
+
+        upcomingAssignments.value.push(
+          // if any upcoming assignments have already been submitted, remove them
+          ...allUpcomingAssignmentsSet.difference(upcomingAssignmentsWithSubmissionsSet),
+        )
+
+        // create an object with the applicable data for the previous assignments handler
+        const assignments = {
+          allAssignments: dataArray,
+          completedAssignments: upcomingAssignmentsWithSubmissionsArray,
+        }
+
+        return assignments
+      })
+      // create previous assignments for the dashboard
+      .then((assignments) => {
+        // use assignments object from previous portion to set previousAssignments.value
         let allPreviousAssignmentsArray = []
 
-        let contextObject = data.classes[classId].assignments
+        // filter out any assignments due today or in the future
+        // sets past assignments exclusive of today
+        allPreviousAssignmentsArray.push(...filterDates(assignments.allAssignments))
 
-        Object.keys(contextObject).forEach((_, index) => {
-          const mergedData = {
-            ...contextObject[index],
-            classId: classId,
-            id: index,
-          }
+        const allPreviousAssignmentsSet = new Set(
+          allPreviousAssignmentsArray.sort(
+            (a, b) => new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime(),
+          ),
+        )
 
-          dataArray.push(mergedData)
-        })
+        const upcomingCompletedAssignmentsSet = new Set(
+          assignments.completedAssignments.sort(
+            (a, b) => new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime(),
+          ),
+        )
 
-        dataArray.forEach((assignment) => {
-          allPreviousAssignmentsArray = filterDates(null, endDate, assignment)
-        })
-
-        allPreviousAssignmentsArray.forEach((assignment) => {
-          // For active classes, I want all assignments either previous in time or completion,
-          // organized by most recent completion or due date
-          // pass the student
-          // get students current classes -> all assignments
-          // remove assignments that are uncompleted and have a due date in the future
-        })
+        previousAssignments.value.push(
+          // if any upcoming assignments have already been submitted, include them
+          ...allPreviousAssignmentsSet.union(upcomingCompletedAssignmentsSet),
+        )
       })
       .catch((error) => {
         // TODO: add error handling
@@ -245,83 +307,26 @@ export const useOfflineStore = defineStore('offline', () => {
     studentAssignmentGrade.value = contextNumber
   }
 
-  const fetchUpcomingAssignments = async () => {
-    const student = localStorage.getItem('username')
-    const startDate = new Date().toISOString()
-    const endDate = new Date(new Date().getTime() + 35 * 24 * 60 * 60 * 1000).toISOString()
-
-    fetch('/data-restructured.json')
-      .then((response) => {
-        return response.json()
-      })
-      .then((data) => {
-        const allUpcomingAssignmentsArray = []
-        const upcomingAssignmentsWithSubmissionsArray = []
-        let dataArray = []
-
-        activeClasses.value.forEach((activeClass, index) => {
-          let assignmentsObject = data?.classes?.[activeClass]?.assignments
-
-          Object.entries(assignmentsObject).forEach(([id, assignment]) => {
-            const mergedData = {
-              ...assignmentsObject[+id],
-              classId: activeClass,
-              index: +id,
-            }
-
-            dataArray.push(mergedData)
-
-            if (assignment.submissions) {
-              Object.entries(assignment?.submissions).forEach((submission, index) => {
-                if (submission[1]?.studentId === student) {
-                  upcomingAssignmentsWithSubmissionsArray.push(mergedData)
-                }
-              })
-            }
-          })
-        })
-        allUpcomingAssignmentsArray.push(...filterDates(startDate, endDate, dataArray))
-
-        const allUpcomingAssignmentsSet = new Set(
-          allUpcomingAssignmentsArray.sort(
-            (a, b) => new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime(),
-          ),
-        )
-
-        const upcomingAssignmentsWithSubmissionsSet = new Set(
-          upcomingAssignmentsWithSubmissionsArray.sort(
-            (a, b) => new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime(),
-          ),
-        )
-
-        upcomingAssignments.value.push(
-          ...allUpcomingAssignmentsSet.difference(upcomingAssignmentsWithSubmissionsSet),
-        )
-
-        upcomingCompletedAssignments.value.push(
-          ...allUpcomingAssignmentsSet.intersection(upcomingAssignmentsWithSubmissionsSet),
-        )
-      })
-      .catch((error) => {
-        // TODO: add error handling
-      })
-  }
-
-  const filterDates = (startDate = null, endDate, assignments) => {
+  const filterDates = (assignments, endDate = null) => {
     let allAssignmentsArray = []
 
+    const today = new Date().toISOString()
+
     assignments.forEach((assignment, index) => {
-      if (startDate) {
+      if (endDate !== null) {
         if (
-          startDate.localeCompare(assignment.dueDate) <= 0 &&
-          endDate.localeCompare(assignment.dueDate) >= 0
+          // if the due date is on or after today
+          assignment.dueDate.localeCompare(today) >= 0 &&
+          // if the due date is before a month from now
+          assignment.dueDate.localeCompare(endDate) < 0
         ) {
           allAssignmentsArray.push(assignment)
         } else {
           return
         }
       } else {
-        if (endDate.localeCompare(assignment.dueDate) >= 0) {
+        // if end date is before due date
+        if (assignment.dueDate.localeCompare(today) < 0) {
           allAssignmentsArray.push(assignment)
         } else {
           return
@@ -417,13 +422,12 @@ export const useOfflineStore = defineStore('offline', () => {
     nextQuestion,
     previousQuestion,
     fetchActiveClasses,
-    fetchPreviousAssignments,
+    fetchDashboard,
     fetchQuiz,
     fetchStudentAnswers,
     fetchStudentAnswersLocal,
     fetchStudentsGrade,
     fetchStudentsGradeLocal,
-    fetchUpcomingAssignments,
     returnRelatedAnswers,
     setDefaultSelections,
     showNextQuestion,
