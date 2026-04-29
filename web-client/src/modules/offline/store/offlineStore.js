@@ -98,8 +98,12 @@ export const useOfflineStore = defineStore('offline', () => {
         let allUpcomingAssignmentsArray = []
         let upcomingAssignmentsWithSubmissionsArray = []
         let dataArray = []
+        let classArray = []
 
         activeClasses.value.forEach((activeClass, index) => {
+          // get classObject for providing courseId and class topic
+          let classObject = data?.classes?.[activeClass]
+
           // get all assignments for the classes that the student is currently taking
           let assignmentsObject = data?.classes?.[activeClass]?.assignments
 
@@ -107,6 +111,8 @@ export const useOfflineStore = defineStore('offline', () => {
             // for each assignment get the object, include a classId and an index
             const mergedData = {
               ...assignmentsObject[+id],
+              courseTopic: classObject.topic,
+              courseId: classObject.courseId,
               classId: activeClass,
               index: +id,
             }
