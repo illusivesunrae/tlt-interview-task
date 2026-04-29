@@ -281,9 +281,17 @@ export const useOfflineStore = defineStore('offline', () => {
           })
         })
         allUpcomingAssignmentsArray.push(...filterDates(startDate, endDate, dataArray))
-        const allUpcomingAssignmentsSet = new Set(allUpcomingAssignmentsArray)
+
+        const allUpcomingAssignmentsSet = new Set(
+          allUpcomingAssignmentsArray.sort(
+            (a, b) => new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime(),
+          ),
+        )
+
         const upcomingAssignmentsWithSubmissionsSet = new Set(
-          upcomingAssignmentsWithSubmissionsArray,
+          upcomingAssignmentsWithSubmissionsArray.sort(
+            (a, b) => new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime(),
+          ),
         )
 
         upcomingAssignments.value.push(
@@ -293,8 +301,9 @@ export const useOfflineStore = defineStore('offline', () => {
         upcomingCompletedAssignments.value.push(
           ...allUpcomingAssignmentsSet.intersection(upcomingAssignmentsWithSubmissionsSet),
         )
-      })
 
+        console.log(upcomingAssignmentsWithSubmissionsSet)
+      })
       .catch((error) => {
         // TODO: add error handling
       })
