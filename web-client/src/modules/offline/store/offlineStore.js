@@ -16,6 +16,7 @@ export const useOfflineStore = defineStore('offline', () => {
   const studentAssignmentAnswers = ref([])
   const studentAssignmentGrade = ref(null)
   const upcomingAssignments = ref([])
+  const upcomingCompletedAssignments = ref([])
 
   const currentQuestion = reactive({
     index: 0,
@@ -74,8 +75,8 @@ export const useOfflineStore = defineStore('offline', () => {
           }
         }
         activeClasses.value = dataArray
-        console.log(activeClasses.value)
       })
+      .then(() => {})
       .catch((error) => {
         // TODO: add error handling
       })
@@ -84,16 +85,17 @@ export const useOfflineStore = defineStore('offline', () => {
   const fetchPreviousAssignments = async (classId) => {
     const endDate = new Date().toISOString()
 
-    fetch('/class-related-data.json')
+    fetch('/data-restructured.json')
       .then((response) => {
         return response.json()
       })
       .then((data) => {
         let dataArray = []
+        let allPreviousAssignmentsArray = []
 
         let contextObject = data.classes[classId].assignments
 
-        Object.keys(contextObject).forEach((item, index) => {
+        Object.keys(contextObject).forEach((_, index) => {
           const mergedData = {
             ...contextObject[index],
             classId: classId,
@@ -103,15 +105,17 @@ export const useOfflineStore = defineStore('offline', () => {
           dataArray.push(mergedData)
         })
 
-        const filterDates = (item) => {
-          if (endDate.localeCompare(item.dueDate) >= 0) {
-            previousAssignments.value.push(item)
-            return true
-          }
-          return false
-        }
+        dataArray.forEach((assignment) => {
+          allPreviousAssignmentsArray = filterDates(null, endDate, assignment)
+        })
 
-        dataArray.filter(filterDates)
+        allPreviousAssignmentsArray.forEach((assignment) => {
+          // For active classes, I want all assignments either previous in time or completion,
+          // organized by most recent completion or due date
+          // pass the student
+          // get students current classes -> all assignments
+          // remove assignments that are uncompleted and have a due date in the future
+        })
       })
       .catch((error) => {
         // TODO: add error handling
@@ -241,44 +245,84 @@ export const useOfflineStore = defineStore('offline', () => {
     studentAssignmentGrade.value = contextNumber
   }
 
-  const fetchUpcomingAssignments = async (classId) => {
+  const fetchUpcomingAssignments = async () => {
+    const student = localStorage.getItem('username')
     const startDate = new Date().toISOString()
     const endDate = new Date(new Date().getTime() + 35 * 24 * 60 * 60 * 1000).toISOString()
 
-    fetch('/class-related-data.json')
+    fetch('/data-restructured.json')
       .then((response) => {
         return response.json()
       })
       .then((data) => {
+        const allUpcomingAssignmentsArray = []
+        const upcomingAssignmentsWithSubmissionsArray = []
         let dataArray = []
 
-        let contextObject = data.classes[classId].assignments
+        activeClasses.value.forEach((activeClass, index) => {
+          let assignmentsObject = data.classes[activeClass].assignments
 
-        Object.keys(contextObject).forEach((item, index) => {
-          const mergedData = {
-            ...contextObject[index + 1],
-            classId: classId,
-            id: item,
-          }
-          dataArray.push(mergedData)
+          Object.entries(assignmentsObject).forEach(([id, assignment]) => {
+            const mergedData = {
+              ...assignmentsObject[+id],
+              classId: activeClass,
+              index: +id,
+            }
+
+            dataArray.push(mergedData)
+
+            if (assignment.submissions) {
+              Object.entries(assignment.submissions).forEach((submission, index) => {
+                if (submission[1].studentId === student) {
+                  upcomingAssignmentsWithSubmissionsArray.push(mergedData)
+                }
+              })
+            }
+          })
         })
+        allUpcomingAssignmentsArray.push(...filterDates(startDate, endDate, dataArray))
+        const allUpcomingAssignmentsSet = new Set(allUpcomingAssignmentsArray)
+        const upcomingAssignmentsWithSubmissionsSet = new Set(
+          upcomingAssignmentsWithSubmissionsArray,
+        )
 
-        const filterDates = (item) => {
-          if (
-            startDate.localeCompare(item.dueDate) <= 0 &&
-            endDate.localeCompare(item.dueDate) >= 0
-          ) {
-            upcomingAssignments.value.push(item)
-            return true
-          }
-          return false
-        }
+        upcomingAssignments.value.push(
+          ...allUpcomingAssignmentsSet.difference(upcomingAssignmentsWithSubmissionsSet),
+        )
 
-        dataArray.filter(filterDates)
+        upcomingCompletedAssignments.value.push(
+          ...allUpcomingAssignmentsSet.intersection(upcomingAssignmentsWithSubmissionsSet),
+        )
       })
+
       .catch((error) => {
         // TODO: add error handling
       })
+  }
+
+  const filterDates = (startDate = null, endDate, assignments) => {
+    let allAssignmentsArray = []
+
+    assignments.forEach((assignment, index) => {
+      if (startDate) {
+        if (
+          startDate.localeCompare(assignment.dueDate) <= 0 &&
+          endDate.localeCompare(assignment.dueDate) >= 0
+        ) {
+          allAssignmentsArray.push(assignment)
+        } else {
+          return
+        }
+      } else {
+        if (endDate.localeCompare(assignment.dueDate) >= 0) {
+          allAssignmentsArray.push(assignment)
+        } else {
+          return
+        }
+      }
+    })
+
+    return allAssignmentsArray
   }
 
   const returnRelatedAnswers = (questionIndex) => {

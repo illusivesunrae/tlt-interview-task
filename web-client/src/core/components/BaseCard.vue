@@ -4,14 +4,14 @@
             :class="{ 'rvt-bg-gold-000': warning, 'rvt-bg-green-000': success }">
             <h2 class="rvt-ts-20">{{ title }}</h2>
             <span class="rvt-badge rvt-m-left-sm" :class="{ 'rvt-badge--warning': warning }" v-if="badge">{{ badge
-            }}</span>
+                }}</span>
         </div>
         <div class="rvt-card__content [ rvt-p-top-none rvt-m-top-none rvt-border-top-none ]" v-if="assignments">
             <ul class="rvt-list-plain">
                 <li class="rvt-flex-lg-up rvt-items-center rvt-justify-space-between rvt-border-top rvt-p-top-md rvt-p-bottom-sm rvt-p-lr-lg"
                     v-for="(assignment, index) in assignments"
                     :class="{ 'rvt-p-bottom-lg': index === assignments.length - 1 }">
-                    <RouterLink :to="`/classes/${assignment.classId}/assignment-${assignment.id}`"
+                    <RouterLink :to="`/classes/${assignment.classId}/assignment-${assignment.index}`"
                         class="rvt-flex rvt-items-center rvt-p-bottom-sm rvt-p-bottom-none-lg-up"
                         style="text-decoration: none;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

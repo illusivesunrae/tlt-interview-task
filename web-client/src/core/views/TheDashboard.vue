@@ -23,10 +23,8 @@ import BaseCard from '../components/BaseCard.vue'
 const store = useEnvironmentStore()
 
 watch(() => store.activeClasses, (newVal, _) => {
-    newVal.forEach((item) => {
-        store.fetchUpcomingAssignments(item)
-        store.fetchPreviousAssignments(item)
-    })
+    store.fetchUpcomingAssignments()
+    //store.fetchPreviousAssignments(item)
 })
 
 onMounted(() => {
