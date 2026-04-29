@@ -67,10 +67,10 @@ export const useOfflineStore = defineStore('offline', () => {
         const student = localStorage.getItem('username')
         let dataArray = []
 
-        let contextObject = data.students[student].classes
+        let contextObject = data?.students?.[student]?.classes
 
         for (const [key, value] of Object.entries(contextObject)) {
-          if (value.term === currentTerm.value) {
+          if (value?.term === currentTerm.value) {
             dataArray.push(key)
           }
         }
@@ -260,7 +260,7 @@ export const useOfflineStore = defineStore('offline', () => {
         let dataArray = []
 
         activeClasses.value.forEach((activeClass, index) => {
-          let assignmentsObject = data.classes[activeClass].assignments
+          let assignmentsObject = data?.classes?.[activeClass]?.assignments
 
           Object.entries(assignmentsObject).forEach(([id, assignment]) => {
             const mergedData = {
@@ -272,8 +272,8 @@ export const useOfflineStore = defineStore('offline', () => {
             dataArray.push(mergedData)
 
             if (assignment.submissions) {
-              Object.entries(assignment.submissions).forEach((submission, index) => {
-                if (submission[1].studentId === student) {
+              Object.entries(assignment?.submissions).forEach((submission, index) => {
+                if (submission[1]?.studentId === student) {
                   upcomingAssignmentsWithSubmissionsArray.push(mergedData)
                 }
               })
@@ -301,8 +301,6 @@ export const useOfflineStore = defineStore('offline', () => {
         upcomingCompletedAssignments.value.push(
           ...allUpcomingAssignmentsSet.intersection(upcomingAssignmentsWithSubmissionsSet),
         )
-
-        console.log(upcomingAssignmentsWithSubmissionsSet)
       })
       .catch((error) => {
         // TODO: add error handling
